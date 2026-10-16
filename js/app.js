@@ -793,51 +793,83 @@ function initSelfAssessmentSlider() {
    Сортировка
    ========================================================================== */
 function initSortableSteps() {
-  var $list = $('#sortable-steps');
-  if (!$list.length) return;
+  var list = document.getElementById('sortable-steps');
+  if (!list) return;
 
-  var items = $list.find('.sortable-item').toArray();
-  var draggingItem = null;
+  var items = list.querySelectorAll('.sortable-item');
+  var activeItem = null;
+  var startY = 0;
+  var initialIndex = 0;
 
   items.forEach(function(item) {
-    // Событие для телефона (палец)
+    // Отключаем нативный скролл и выделение текста для этого элемента
+    item.style.touchAction = 'none';
+    item.style.webkitUserSelect = 'none';
+    item.style.userSelect = 'none';
+
+    // Зажимаем палец
     item.addEventListener('touchstart', function(e) {
-      draggingItem = this;
-      this.style.opacity = '0.6';
-      this.style.transform = 'scale(1.02)';
-      this.style.zIndex = '1000';
+      activeItem = this;
+      startY = e.touches[0].clientY;
+      
+      this.style.opacity = '0.85';
+      this.style.transform = 'scale(1.03)';
+      this.style.zIndex = '9999';
+      this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.15)';
+      
+      // Запоминаем текущую позицию
+      initialIndex = Array.prototype.indexOf.call(list.children, activeItem);
     }, { passive: true });
 
-    item.addEventListener('touchend', function() {
-      if (draggingItem) {
-        draggingItem.style.opacity = '1';
-        draggingItem.style.transform = 'none';
-        draggingItem.style.zIndex = 'auto';
-        draggingItem = null;
-      }
-    });
-
+    // Ведем палец
     item.addEventListener('touchmove', function(e) {
-      if (!draggingItem) return;
-      // Отменяем стандартный скролл страницы, пока тащим блок
-      e.preventDefault();
+      if (!activeItem) return;
+      e.preventDefault(); // Гасим скролл страницы, чтобы тащился именно блок
 
-      var touch = e.touches[0];
-      var currentY = touch.clientY;
+      var currentY = e.touches[0].clientY;
+      var deltaY = currentY - startY;
 
-      // Ищем элемент, над которым сейчас находится палец
-      var siblings = items.filter(function(el) { return el !== draggingItem; });
-      var nextSibling = siblings.find(function(sibling) {
-        var rect = sibling.getBoundingClientRect();
-        return currentY < rect.top + rect.height / 2;
+      // Сдвигаем элемент визуально за пальцем
+      activeItem.style.transform = 'translateY(' + deltaY + 'px) scale(1.03)';
+
+      // Ищем соседа сверху или снизу, чтобы поменяться местами
+      var siblings = Array.prototype.filter.call(list.children, function(child) {
+        return child !== activeItem;
       });
 
-      if (nextSibling) {
-        $list[0].insertBefore(draggingItem, nextSibling);
-      } else {
-        $list[0].appendChild(draggingItem);
-      }
+      siblings.forEach(function(sibling) {
+        var rect = sibling.getBoundingClientRect();
+        var siblingCenter = rect.top + rect.height / 2;
+
+        if (currentY < siblingCenter && activeItem.previousElementSibling === sibling) {
+          list.insertBefore(activeItem, sibling);
+        } else if (currentY > siblingCenter && activeItem.nextElementSibling === sibling) {
+          list.insertAfter ? list.insertAfter(activeItem, sibling) : list.insertBefore(activeItem, sibling.nextElementSibling);
+        }
+      });
     }, { passive: false });
+
+    // Отпускаем палец
+    item.addEventListener('touchend', function() {
+      if (!activeItem) return;
+
+      // Сбрасываем стили перетаскивания
+      activeItem.style.opacity = '1';
+      activeItem.style.transform = 'none';
+      activeItem.style.zIndex = 'auto';
+      activeItem.style.boxShadow = 'none';
+
+      activeItem = null;
+    });
+
+    item.addEventListener('touchcancel', function() {
+      if (!activeItem) return;
+      activeItem.style.opacity = '1';
+      activeItem.style.transform = 'none';
+      activeItem.style.zIndex = 'auto';
+      activeItem.style.boxShadow = 'none';
+      activeItem = null;
+    });
   });
 }
 
