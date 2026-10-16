@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог записей | История избирательных кампаний в Беларуси</title>
+
+  <!-- 1. Подключение Bootstrap 5 -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  
+  <!-- 2. Авторские стили проекта -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="page-grid">
+
+  <!-- ШАПКА САЙТА -->
+  <header class="site-header mb-4">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="brand d-flex align-items-center gap-3">
+        <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+        <div class="brand-text">
+          <h1 class="h5 mb-0 text-white">История избирательных кампаний в Беларуси</h1>
+        </div>
+      </div>
+      <nav class="main-nav d-none d-md-flex gap-2">
+        <a href="index.html" class="btn btn-outline-light btn-sm">Главная</a>
+        <a href="registry.html" class="btn btn-light btn-sm fw-bold">Реестр</a>
+        <a href="knowledge.html" class="btn btn-outline-light btn-sm">База знаний</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ОСНОВНОЙ КОНТЕЙНЕР КАТАЛОГА (СЕТКА BOOTSTRAP 12 КОЛОНОК) -->
+  <main class="container my-3 flex-grow-1">
+
+    <!-- Заголовок страницы -->
+    <div class="row mb-3">
+      <div class="col-12">
+        <h2 class="h3 fw-bold border-bottom pb-2">Каталог архивных документов и записей</h2>
+        <p class="text-muted">Официальный реестр правовых актов, хроник и статистических отчётов избирательных кампаний.</p>
+      </div>
+    </div>
+
+    <!-- 1. БЛОК ФИЛЬТРОВ (col-12) -->
+    <section class="row mb-4">
+      <div class="col-12">
+        <div class="card p-3 shadow-sm border-0 bg-light">
+          <h3 class="h6 fw-bold mb-3">Фильтры и поиск записей</h3>
+          <form class="row g-3" id="filter-form" onsubmit="return false;">
+            <div class="col-12 col-md-5">
+              <input type="text" id="search-input" class="form-control" placeholder="Поиск по названию или номеру документа...">
+            </div>
+            <div class="col-12 col-md-3">
+              <select id="type-select" class="form-select">
+                <option value="" selected>Все типы документов</option>
+                <option value="Кодекс">Законы и Кодексы</option>
+                <option value="Постановление">Постановления ЦИК</option>
+                <option value="Статистика">Архивные отчёты</option>
+                <option value="Инструкция">Инструкции</option>
+                <option value="Реестр">Реестры</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-2">
+              <select id="year-select" class="form-select">
+                <option value="" selected>Год (Все)</option>
+                <option value="2025">2025</option>
+                <option value="2023">2023</option>
+                <option value="2020">2020</option>
+                <option value="2015">2015</option>
+                <option value="2010">2010</option>
+              </select>
+            </div>
+            <div class="col-12 col-md-2 d-grid">
+              <button type="button" id="reset-btn" class="btn btn-outline-secondary fw-semibold">Сбросить</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. ОСНОВНОЙ КОНТЕНТ: ТАБЛИЦА + БОКОВАЯ ИНФОРМАЦИЯ -->
+    <div class="row g-4">
+      
+      <!-- ТАБЛИЦА (col-12 на мобильных, col-lg-9 на десктопе) -->
+      <div class="col-12 col-lg-9">
+        <div class="table-responsive shadow-sm rounded border bg-white">
+          <table class="table table-hover table-striped align-middle mb-0" id="data-table">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Наименование записи / документа</th>
+                <th scope="col">Категория</th>
+                <th scope="col">Дата</th>
+                <th scope="col">Статус</th>
+              </tr>
+            </thead>
+            <tbody id="table-body">
+              <!-- Записи будут генерироваться через JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Сообщение, если ничего не найдено -->
+        <div id="no-results" class="alert alert-warning text-center mt-3 d-none">
+          По вашему запросу ничего не найдено. Попробуйте изменить параметры фильтрации.
+        </div>
+
+        <!-- ПОСТРАНИЧНАЯ НАВИГАЦИЯ (PAGINATION) -->
+        <nav aria-label="Пагинация реестра" class="mt-4 d-flex justify-content-center">
+          <ul class="pagination mb-0" id="pagination">
+            <!-- Кнопки страниц будут генерироваться через JS -->
+          </ul>
+        </nav>
+      </div>
+
+      <!-- 3. БОКОВАЯ ИНФОРМАЦИЯ (col-lg-3) -->
+      <aside class="col-12 col-lg-3">
+        <div class="card p-3 shadow-sm mb-3 border-0 bg-white">
+          <h4 class="h6 fw-bold border-bottom pb-2">Сводка каталога</h4>
+          <ul class="list-unstyled mb-0 small">
+            <li class="mb-2"><strong>Всего записей:</strong> <span id="stat-total">0</span></li>
+            <li class="mb-2"><strong>Отображено:</strong> <span id="stat-visible">0</span></li>
+            <li class="mb-2"><strong>Действующих актов:</strong> <span id="stat-active">0</span></li>
+            <li class="mb-2"><strong>Архивных материалов:</strong> <span id="stat-archive">0</span></li>
+            <li class="mb-0 text-muted">Обновлено: 14.10.2026</li>
+          </ul>
+        </div>
+
+        <div class="card p-3 shadow-sm border-0 bg-primary text-white">
+          <h4 class="h6 fw-bold border-bottom border-light pb-2">Справка</h4>
+          <p class="small mb-0">Для получения заверенных копий архивных документов направьте официальный запрос в Центральную избирательную комиссию.</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer id="footer" class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="index.html#hero">Главная</a></li>
+          <li><a href="registry.html">Реестр записей</a></li>
+          <li><a href="checklist.html">Чек-лист</a></li>
+          <li><a href="knowledge.html">Проверка знаний</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <h4>Контакты и сведения</h4>
+        <p>Учебная практика «Веб-программирование»</p>
+        <p>Исполнитель: Глушко Карина Ивановна</p>
+        <p>Тема: История избирательных кампаний в Беларуси</p>
+      </div>
+
+      <div class="footer-sources">
+        <h4>Источники</h4>
+        <p>Конституция Республики Беларусь</p>
+        <p>Избирательный кодекс Республики Беларусь</p>
+        <p>Материалы ЦИК РБ</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Учебная практика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- СКРИПТ ФИЛЬТРАЦИИ И ПАГИНАЦИИ -->
+  <script>
+    // Массив данных записей каталога
+    const rawData = [
+      { id: "101", title: "Избирательный кодекс Республики Беларусь (с изм. и доп.)", type: "Кодекс", date: "15.02.2023", year: "2023", status: "Действует", badge: "bg-primary", statusBadge: "bg-success" },
+      { id: "102", title: "Постановление ЦИК № 12 «Об организации участков»", type: "Постановление", date: "10.01.2025", year: "2025", status: "Действует", badge: "bg-secondary", statusBadge: "bg-success" },
+      { id: "103", title: "Итоговый статистический отчёт по выборам 2020 года", type: "Статистика", date: "20.08.2020", year: "2020", status: "В архиве", badge: "bg-info text-dark", statusBadge: "bg-dark" },
+      { id: "104", title: "Методические рекомендации для наблюдателей", type: "Инструкция", date: "05.11.2023", year: "2023", status: "Действует", badge: "bg-warning text-dark", statusBadge: "bg-success" },
+      { id: "105", title: "Сводный реестр избирательных округов 2015 года", type: "Реестр", date: "12.10.2015", year: "2015", status: "В архиве", badge: "bg-info text-dark", statusBadge: "bg-dark" },
+      { id: "106", title: "Постановление ЦИК № 45 «О форме избирательного бюллетеня»", type: "Постановление", date: "18.12.2024", year: "2025", status: "Действует", badge: "bg-secondary", statusBadge: "bg-success" },
+      { id: "107", title: "Отчёт о работе участковых комиссий 2010 года", type: "Статистика", date: "25.12.2010", year: "2010", status: "В архиве", badge: "bg-info text-dark", statusBadge: "bg-dark" },
+      { id: "108", title: "Инструкция по порядку подсчета голосов избирателей", type: "Инструкция", date: "02.02.2024", year: "2023", status: "Действует", badge: "bg-warning text-dark", statusBadge: "bg-success" },
+      { id: "109", title: "Закон «О республиканских и местных референдумах»", type: "Кодекс", date: "10.05.2023", year: "2023", status: "Действует", badge: "bg-primary", statusBadge: "bg-success" },
+      { id: "110", title: "Реестр наблюдателей за избирательным процессом 2020", type: "Реестр", date: "01.08.2020", year: "2020", status: "В архиве", badge: "bg-info text-dark", statusBadge: "bg-dark" },
+      { id: "111", title: "Постановление ЦИК № 3 «Об образовании округов»", type: "Постановление", date: "05.01.2025", year: "2025", status: "Действует", badge: "bg-secondary", statusBadge: "bg-success" },
+      { id: "112", title: "Архивная хроника президентских выборов 2015 года", type: "Статистика", date: "15.11.2015", year: "2015", status: "В архиве", badge: "bg-info text-dark", statusBadge: "bg-dark" }
+    ];
+
+    let filteredData = [...rawData];
+    let currentPage = 1;
+    const itemsPerPage = 5; // Показываем по 5 записей на странице
+
+    // Элементы DOM
+    const searchInput = document.getElementById("search-input");
+    const typeSelect = document.getElementById("type-select");
+    const yearSelect = document.getElementById("year-select");
+    const resetBtn = document.getElementById("reset-btn");
+    const tableBody = document.getElementById("table-body");
+    const noResults = document.getElementById("no-results");
+    const pagination = document.getElementById("pagination");
+
+    // Элементы сводки
+    const statTotal = document.getElementById("stat-total");
+    const statVisible = document.getElementById("stat-visible");
+    const statActive = document.getElementById("stat-active");
+    const statArchive = document.getElementById("stat-archive");
+
+    // Функция фильтрации
+    function applyFilters() {
+      const searchVal = searchInput.value.toLowerCase().trim();
+      const typeVal = typeSelect.value;
+      const yearVal = yearSelect.value;
+
+      filteredData = rawData.filter(item => {
+        const matchesSearch = item.title.toLowerCase().includes(searchVal) || item.id.includes(searchVal);
+        const matchesType = typeVal === "" || item.type === typeVal;
+        const matchesYear = yearVal === "" || item.year === yearVal;
+        return matchesSearch && matchesType && matchesYear;
+      });
+
+      currentPage = 1; // Сбрасываем на 1 страницу при новом фильтре
+      renderTable();
+      renderPagination();
+      updateStats();
+    }
+
+    // Рендер таблицы
+    function renderTable() {
+      tableBody.innerHTML = "";
+
+      if (filteredData.length === 0) {
+        noResults.classList.remove("d-none");
+        return;
+      } else {
+        noResults.classList.add("d-none");
+      }
+
+      const startIndex = (currentPage - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const pageItems = filteredData.slice(startIndex, endIndex);
+
+      pageItems.forEach(item => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>#${item.id}</strong></td>
+          <td>${item.title}</td>
+          <td><span class="badge ${item.badge}">${item.type}</span></td>
+          <td>${item.date}</td>
+          <td><span class="badge ${item.statusBadge}">${item.status}</span></td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    // Рендер кнопки пагинации
+    function renderPagination() {
+      pagination.innerHTML = "";
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+      if (totalPages <= 1) return;
+
+      // Кнопка Назад
+      const prevLi = document.createElement("li");
+      prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+      prevLi.innerHTML = `<a class="page-link" href="#">Назад</a>`;
+      prevLi.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (currentPage > 1) {
+          currentPage--;
+          renderTable();
+          renderPagination();
+          updateStats();
+        }
+      });
+      pagination.appendChild(prevLi);
+
+      // Кнопки с номерами страниц
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement("li");
+        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+        li.addEventListener("click", (e) => {
+          e.preventDefault();
+          currentPage = i;
+          renderTable();
+          renderPagination();
+          updateStats();
+        });
+        pagination.appendChild(li);
+      }
+
+      // Кнопка Вперёд
+      const nextLi = document.createElement("li");
+      nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+      nextLi.innerHTML = `<a class="page-link" href="#">Вперёд</a>`;
+      nextLi.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderTable();
+          renderPagination();
+          updateStats();
+        }
+      });
+      pagination.appendChild(nextLi);
+    }
+
+    // Обновление сводки
+    function updateStats() {
+      statTotal.textContent = rawData.length;
+      statVisible.textContent = filteredData.length;
+      statActive.textContent = filteredData.filter(i => i.status === "Действует").length;
+      statArchive.textContent = filteredData.filter(i => i.status === "В архиве").length;
+    }
+
+    // Сброс фильтров
+    resetBtn.addEventListener("click", () => {
+      searchInput.value = "";
+      typeSelect.value = "";
+      yearSelect.value = "";
+      applyFilters();
+    });
+
+    // Навешиваем слушатели событий
+    searchInput.addEventListener("input", applyFilters);
+    typeSelect.addEventListener("change", applyFilters);
+    yearSelect.addEventListener("change", applyFilters);
+
+    // Первоначальный запуск
+    applyFilters();
+  </script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хроника выборов (1994–2025) — История избирательных кампаний в Беларуси</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <style>
+        /* Исправление ховер-эффекта карточек: только увеличение без поворота */
+        .cards-grid .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .cards-grid .card:hover {
+            transform: scale(1.03) translateY(-4px) !important;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15) !important;
+        }
+    </style>
+</head>
+
+<body class="page-grid">
+
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="status-indicator" title="Статус портала: Активен"></span>
+                <div class="brand-text">
+                    <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+                    <h1>История избирательных кампаний в Беларуси</h1>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+            <label for="nav-toggle" class="nav-toggle-btn">
+                <span class="hamburger"></span>
+            </label>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Главная</a>
+                <a href="section-1.html" class="nav-btn active">Хроника выборов</a>
+                <a href="section-2.html" class="nav-btn">Республиканские референдумы</a>
+                <a href="section-3.html" class="nav-btn">Предвыборные технологии</a>
+                <a href="section-4.html" class="nav-btn">Единый день голосования</a>
+                <a href="checklist.html" class="nav-btn">Чек-лист</a>
+                <a href="registry.html" class="nav-btn">Реестр записей</a>
+                <a href="knowledge.html" class="nav-btn">Проверка знаний</a>
+                <a href="index.html#footer" class="nav-btn">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Двухколоночный контент с принудительной сеткой -->
+    <div class="page"
+        style="display: grid; grid-template-columns: 260px 1fr; gap: 30px; max-width: 1180px; margin: 0 auto; padding: 24px 16px; align-items: start;">
+
+        <!-- Боковое меню -->
+        <aside class="page__aside" style="width: 100%;">
+            <nav class="sidenav"
+                style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px;">
+                <h2 class="sidenav__title"
+                    style="font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px;">
+                    Навигация по разделам</h2>
+                <ul class="sidenav__list" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-1.html" class="sidenav__link"
+                            aria-current="page"
+                            style="display: block; padding: 8px 12px; color: #2563eb; background-color: #eff6ff; font-weight: 700; border-radius: 6px; border-left: 4px solid #2563eb; text-decoration: none;">Раздел
+                            1. Хроника выборов</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-2.html" class="sidenav__link"
+                            style="display: block; padding: 8px 12px; color: #334155; text-decoration: none; border-radius: 6px;">Раздел
+                            2. Референдумы</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-3.html" class="sidenav__link"
+                            style="display: block; padding: 8px 12px; color: #334155; text-decoration: none; border-radius: 6px;">Раздел
+                            3. Технологии</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-4.html" class="sidenav__link"
+                            style="display: block; padding: 8px 12px; color: #334155; text-decoration: none; border-radius: 6px;">Раздел
+                            4. Единый день голосования</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Основное содержимое -->
+        <main class="page__main" style="min-width: 0; overflow: hidden;">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list"
+                    style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; font-size: 0.9rem; color: #64748b; margin-bottom: 16px;">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link"
+                            style="color: #2563eb; text-decoration: none;">Главная</a></li>
+                    <li class="breadcrumbs__item" aria-current="page" style="margin-left: 8px;">/ Раздел 1. Хроника
+                        выборов (1994–2025)</li>
+                </ol>
+            </nav>
+
+            <h1 style="font-size: 1.8rem; margin-bottom: 20px; color: #0f172a;">Хроника президентских и парламентских
+                выборов в Беларуси</h1>
+
+            <!-- Подробный блок 1.1 -->
+            <section id="sub-1-1" style="margin-bottom: 24px;">
+                <h2 style="font-size: 1.3rem; margin-bottom: 10px; color: #1e3a8a;">1.1. Становление института
+                    президентства (1994 г.)</h2>
+                <p>Первые президентские выборы в суверенной Республике Беларусь состоялись летом 1994 года на основе
+                    исторически первой Конституции независимого государства, принятой 15 марта 1994 года. Этот период
+                    ознаследовал переход от парламентской формы правления к смешанной президентско-парламентской
+                    республике. Избирательный процесс проходил в два тура под пристальным вниманием общественности и
+                    заложил фундаментальные стандарты национального избирательного права.</p>
+            </section>
+
+            <!-- Блок-предупреждение -->
+            <div class="notice notice--warning"
+                style="background-color: #fffbe2; border-left: 5px solid #d97706; color: #92400e; padding: 16px; border-radius: 8px; margin-bottom: 24px;">
+                <div class="notice__title" style="font-weight: 700; margin-bottom: 6px;">Ключевое требование Конституции
+                    Республики Беларусь</div>
+                <p>Согласно статье 80 Конституции РБ и нормам Избирательного кодекса, Президентом Республики Беларусь
+                    может быть избран гражданин Республики Беларусь по рождению, не моложе 40 лет, обладающий
+                    избирательным правом и постоянно проживающий в Республике Беларусь не менее 20 лет непосредственно
+                    перед выборами.</p>
+            </div>
+
+            <!-- Карточки нормативных требований в 3 колонки -->
+            <section id="requirements-cards" style="margin-bottom: 35px;">
+                <h2 style="font-size: 1.4rem; margin-bottom: 16px; color: #0f172a;">Карточки нормативных требований к
+                    кандидатам</h2>
+                <div class="cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+
+                    <article class="card"
+                        style="background: #ffffff; border: 1px solid #bfdbfe; border-top: 4px solid #2563eb; border-radius: 12px; padding: 20px; display: flex; flex-direction: column;">
+                        <div class="card-header"
+                            style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">
+                            Требование 01</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #0f172a;">Гражданство</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin-bottom: 16px; line-height: 1.5;">Кандидат
+                            должен являться гражданином Республики Беларусь исключительно по рождению. Наличие
+                            гражданства иностранного государства или вида на жительство категорически не допускается.
+                        </p>
+                    </article>
+
+                    <article class="card card-radial"
+                        style="background: radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%); border: 1px solid #7dd3fc; border-top: 4px solid #0284c7; border-radius: 12px; padding: 20px; display: flex; flex-direction: column;">
+                        <div class="card-header"
+                            style="font-size: 0.8rem; font-weight: 800; color: #0369a1; text-transform: uppercase; margin-bottom: 6px;">
+                            Требование 02</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #0f172a;">Возрастной ценз</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin-bottom: 16px; line-height: 1.5;">Достижение
+                            возраста не менее 40 лет на день проведения выборов. Данное требование гарантирует
+                            необходимый жизненный опыт и политическую зрелость кандидата.</p>
+                    </article>
+
+                    <article class="card"
+                        style="background: #ffffff; border: 1px solid #bfdbfe; border-top: 4px solid #2563eb; border-radius: 12px; padding: 20px; display: flex; flex-direction: column;">
+                        <div class="card-header"
+                            style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">
+                            Требование 03</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #0f172a;">Ценз оседлости</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin-bottom: 16px; line-height: 1.5;">Постоянное
+                            проживание на территории Республики Беларусь не менее 20 лет непосредственно перед днем
+                            выборов для глубокого понимания проблем общества.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Подробный блок 1.2 -->
+            <section id="sub-1-2" style="margin-bottom: 28px;">
+                <h2
+                    style="font-size: 1.35rem; margin-bottom: 12px; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px;">
+                    1.2. Электоральные циклы 2001–2010 годов
+                </h2>
+                <p style="line-height: 1.6; margin-bottom: 12px;">
+                    Период 2001–2010 годов стал определяющим этапом систематизации и укрепления электорально-правовой
+                    системы Республики Беларусь. Принятие в 2000 году Избирательного кодекса РБ заложило единый
+                    законодательный фундамент для проведения всех типов избирательных кампаний.
+                </p>
+                <div class="notice notice--info"
+                    style="padding: 16px 20px; border-radius: 8px; margin-bottom: 14px; border-left: 5px solid #2563eb;">
+                    <h4 style="margin: 0 0 10px 0; font-size: 1.05rem; font-weight: 700;">Ключевые особенности
+                        электорального периода:</h4>
+                    <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+                        <li style="margin-bottom: 8px;">
+                            <strong>Президентские выборы 2001 года (9 сентября):</strong> Вторые в истории независимой
+                            Беларуси выборы Главы государства. Явка избирателей составила 83.8%, а голосование
+                            завершилось в один тур.
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <strong>Президентские выборы 2006 года (19 марта):</strong> Характеризовались рекордной
+                            активностью граждан — явка достигла 92.6%. В этот период были законодательно
+                            усовершенствованы нормы формирования избирательных фондов кандидатов и досрочного
+                            голосования.
+                        </li>
+                        <li style="margin-bottom: 8px;">
+                            <strong>Президентские выборы 2010 года (19 декабря):</strong> Выборы проходили в условиях
+                            обновленного Избирательного кодекса, установившего упрощенный порядок регистрации
+                            инициативных групп и расширившего права национальных и международных наблюдателей.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Подробный блок 1.3 -->
+            <section id="sub-1-3" style="margin-bottom: 28px;">
+                <h2
+                    style="font-size: 1.35rem; margin-bottom: 12px; border-bottom: 2px solid #cbd5e1; padding-bottom: 6px;">
+                    1.3. Парламентские выборы и институционализация
+                </h2>
+                <p style="line-height: 1.6; margin-bottom: 12px;">
+                    Формирование двухпалатного Парламента — Национального собрания Республики Беларусь — стало важнейшим
+                    шагом институционализации законодательной власти и обеспечения представительной демократии в стране.
+                </p>
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 14px;">
+                    <div class="card" style="padding: 18px; border-top: 3px solid #2563eb;">
+                        <div class="card-header"
+                            style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">
+                            Законодательная палата</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Палата представителей</h3>
+                        <p style="font-size: 0.92rem; line-height: 1.5; margin: 0;">
+                            Состоит из 110 депутатов, избираемых по мажоритарной избирательной системе на основе
+                            всеобщего, равного и прямого избирательного права при тайном голосовании по одномандатным
+                            округам сроком на 5 лет.
+                        </p>
+                    </div>
+                    <div class="card card-radial" style="padding: 18px; border-top: 3px solid #0284c7;">
+                        <div class="card-header"
+                            style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; margin-bottom: 6px;">
+                            Палата территориального представительства</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Совет Республики</h3>
+                        <p style="font-size: 0.92rem; line-height: 1.5; margin: 0;">
+                            Палата территориального представительства из 64 членов. По 8 членов избираются от каждой
+                            области и города Минска заседаниями местных Советов депутатов, а ещё 8 членов назначаются
+                            Президентом.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Расширенная таблица 1.4 -->
+            <section id="sub-1-4" style="margin-bottom: 30px;">
+                <h2
+                    style="font-size: 1.35rem; margin-bottom: 14px; color: #0f172a; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px;">
+                    1.4. Сводная статистика избирательных кампаний
+                </h2>
+                <div class="table-responsive"
+                    style="width: 100%; overflow-x: auto; border: 1px solid #cbd5e1; border-radius: 8px;">
+                    <table class="data-table"
+                        style="width: 100%; border-collapse: collapse; background-color: #ffffff;">
+                        <caption style="padding: 10px; font-weight: 600; text-align: left; color: #334155;">
+                            Таблица 1.1 — Статистические показатели и итоги президентских кампаний в Республике Беларусь
+                            (1994–2020 гг.)
+                        <thead>
+                            <tr style="background-color: #1e293b; color: #ffffff; text-align: left;">
+                                <th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Год проведения</th>
+                                <th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Дата голосования</th>
+                                <th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Явка избирателей (%)
+                                </th>
+                                <th scope="col" style="padding: 12px; border: 1px solid #cbd5e1;">Официальный статус и
+                                    этапы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    1994</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">23 июня / 10 июля</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">84.7%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены (2 тура, историческое
+                                    становление поста)[cite: 12]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    2001</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">9 сентября</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">83.8%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены в 1 тур[cite: 12]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    2006</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">19 марта</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">92.6%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены в 1 тур (максимальная
+                                    явка)[cite: 12]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    2010</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">19 декабря</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">90.7%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены в 1 тур</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    2015</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">11 октября</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">87.2%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены в 1 тур</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" style="padding: 10px; border: 1px solid #cbd5e1; background: #f8fafc;">
+                                    2020</th>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">9 августа</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">84.2%</td>
+                                <td style="padding: 10px; border: 1px solid #cbd5e1;">Завершены в 1 тур</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Подвал -->
+    <footer id="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html#hero">Главная</a></li>
+                    <li><a href="index.html#provisions">Положения</a></li>
+                    <li><a href="index.html#sections">Разделы</a></li>
+                    <li><a href="index.html#news">Анонсы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacts">
+                <h3>Контакты и сведения</h3>
+                <p>Учебная практика «Веб-программирование»</p>
+                <p>Исполнитель: Глушко Карина Ивановна</p>
+                <p>Тема: История избирательных кампаний в Беларуси</p>
+            </div>
+
+            <div class="footer-sources">
+                <h3>Источники</h3>
+                <p>Конституция Республики Беларусь</p>
+                <p>Избирательный кодекс Республики Беларусь</p>
+                <p>Материалы ЦИК РБ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Учебная практика. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

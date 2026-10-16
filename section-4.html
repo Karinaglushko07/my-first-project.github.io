@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Единый день голосования — История избирательных кампаний в Беларуси</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <style>
+        .reform-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 14px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 768px) {
+            .reform-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .reform-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .reform-card {
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-top: 4px solid #2563eb;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .reform-card:hover {
+            transform: scale(1.03) translateY(-4px) !important;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15) !important;
+        }
+        body.dark-theme .reform-card {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+    </style>
+</head>
+
+<body class="page-grid">
+
+    <!-- Шапка -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="status-indicator" title="Статус портала: Активен"></span>
+                <div class="brand-text">
+                    <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+                    <h1>История избирательных кампаний в Беларуси</h1>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+            <label for="nav-toggle" class="nav-toggle-btn">
+                <span class="hamburger"></span>
+            </label>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Главная</a>
+                <a href="section-1.html" class="nav-btn">Хроника выборов</a>
+                <a href="section-2.html" class="nav-btn">Республиканские референдумы</a>
+                <a href="section-3.html" class="nav-btn">Предвыборные технологии</a>
+                <a href="section-4.html" class="nav-btn active">Единый день голосования</a>
+                <a href="checklist.html" class="nav-btn">Чек-лист</a>
+                <a href="registry.html" class="nav-btn active">Реестр записей</a>
+                <a href="knowledge.html" class="nav-btn active">Проверка знаний</a>
+                <a href="index.html#footer" class="nav-btn">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <div class="page" style="display: grid; grid-template-columns: 260px 1fr; gap: 30px; max-width: 1180px; margin: 0 auto; padding: 24px 16px; align-items: start;">
+
+        <!-- Боковое меню -->
+        <aside class="page__aside" style="width: 100%;">
+            <nav class="sidenav">
+                <h2 class="sidenav__title">Навигация по разделам</h2>
+                <ul class="sidenav__list" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-1.html" class="sidenav__link">Раздел 1. Хроника выборов</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-2.html" class="sidenav__link">Раздел 2. Референдумы</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-3.html" class="sidenav__link">Раздел 3. Технологии</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-4.html" class="sidenav__link" aria-current="page">Раздел 4. Единый день голосования</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Основная область -->
+        <main class="page__main" style="min-width: 0; overflow: hidden;">
+
+            <!-- Хлебные крошки -->
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list" style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 16px;">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                    <li class="breadcrumbs__item" aria-current="page" style="margin-left: 8px;">/ Раздел 4. Единый день голосования</li>
+                </ol>
+            </nav>
+
+            <h1>Единый день голосования и современный этап электоральных реформ</h1>
+
+            <section id="sub-4-1" style="margin-bottom: 24px;">
+                <h2>4.1. Концепция, цели и исторические предпосылки введения Единого дня голосования</h2>
+                <p>Переход к практике проведения Единого дня голосования (ЕДГ) стал одной из самых масштабных институциональных трансформаций в новейшей истории избирательной системы Республики Беларусь. Данная концепция направлена на кардинальную оптимизацию всего электорального цикла, синхронизацию процессов формирования депутатского корпуса и рациональное распределение организационных, кадровых и финансовых ресурсов государства. Совмещение выборов депутатов Палаты представителей Национального собрания и депутатов местных Советов всех уровней позволяет существенно снизить электоральную нагрузку на общество, повысить уровень консолидации граждан и обеспечить высокую динамику общественно-политической жизни страны в четко регламентированные временные рамки.</p>
+            </section>
+
+            <section id="sub-4-2" style="margin-bottom: 24px;">
+                <h2>4.2. Правовые аспекты, конституционные основы и институциональное обновление</h2>
+                <p>Масштабная электоральная реформа нашла свое прямое закрепление в нормах обновленной Конституции Республики Беларусь, принятой на республиканском референдуме, а также в кардинально переработанных статьях Избирательного кодекса. В рамках правовой модернизации были унифицированы процедуры образования избирательных округов, уточнены требования к кандидатам в депутаты, усовершенствованы механизмы работы институтов наблюдателей и регламентированы правила использования цифровых технологий при проверке подписных листов и подсчете голосов. Законодательные новеллы обеспечили прозрачность, стабильность и безусловное соответствие национальных стандартов выборов общепризнанным принципам международного права.</p>
+            </section>
+
+            <!-- Блок карточек особенностей реформы с перестроением из 3 в 2 и 1 колонку -->
+            <section id="sub-reform-cards" style="margin-bottom: 30px;">
+                <h2>Ключевые преимущества и особенности единого цикла</h2>
+                <div class="reform-grid">
+                    
+                    <div class="reform-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">Аспект 01</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Экономия ресурсов</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Объединение кампаний позволяет в разы сократить бюджетные расходы на изготовление бюллетеней, аренду помещений и материально-техническое оснащение комиссий.</p>
+                    </div>
+
+                    <div class="reform-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #0369a1; text-transform: uppercase; margin-bottom: 6px;">Аспект 02</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Синхронизация власти</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Формирование представительных органов всех уровней в один день обеспечивает слаженность законодательной работы и местного самоуправления на 5 лет.</p>
+                    </div>
+
+                    <div class="reform-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">Аспект 03</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Информационная ясность</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Избиратели получают возможность комплексно оценить программы кандидатов как республиканского, так и местного уровня в рамках единого агитационного окна.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Врезка-предупреждение на всю ширину -->
+            <div class="notice notice--warning" style="margin-bottom: 30px;">
+                <div class="notice__title">Особенность периода полномочий и конституционные гарантии</div>
+                <p>Срок полномочий депутатов Палаты представителей Национального собрания Республики Беларусь и местных Советов депутатов, избираемых в единый день голосования, составляет ровно 5 лет. Это гарантирует стабильность функционирования представительных органов власти и преемственность реализации стратегических государственных программ социально-экономического развития регионов и страны в целом.</p>
+            </div>
+
+            <section id="sub-4-3" style="margin-bottom: 24px;">
+                <h2>4.3. Выдвижение кандидатов, формирование комиссий и организация голосования</h2>
+                <p>Важнейшим элементом Единого дня голосования является четкая и слаженная система формирования избирательных комиссий. Процесс включает создание Центральной избирательной комиссии (ЦИК РБ), окружных, территориальных и участковых комиссий с широким представительством общественных объединений, политических партий и граждан. Процедура выдвижения кандидатов в депутаты осуществляется тремя основными способами: политическими партиями, трудовыми коллективами и путем подачи гражданами заявлений через сбор подписей избирателей. Организация досрочного голосования и основного дня выборов строится на строгом соблюдении принципов всеобщего, равного, прямого избирательного права при тайном голосовании.</p>
+            </section>
+
+            <!-- Таблица справочных данных в адаптивной обёртке -->
+            <section id="sub-4-4" style="margin-bottom: 30px;">
+                <h2>4.4. Сводные параметры и структура проведения Единого дня голосования</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <caption>Таблица 4.1 — Структурные показатели, мандаты и ответственность органов Единого дня голосования</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Уровень выборов</th>
+                                <th scope="col">Количество мандатов</th>
+                                <th scope="col">Срок полномочий</th>
+                                <th scope="col">Избирательный орган</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Палата представителей</th>
+                                <td>110 депутатов</td>
+                                <td>5 лет</td>
+                                <td>Окружные комиссии / ЦИК РБ</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Областные и Минский городской Советы</th>
+                                <td>По установленным округам регионов</td>
+                                <td>5 лет</td>
+                                <td>Территориальные избирательные комиссии</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Районные, городские и поселковые Советы</th>
+                                <td>По местным территориальным округам</td>
+                                <td>5 лет</td>
+                                <td>Районные / Городские комиссии</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Подвал -->
+    <footer id="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html#hero">Главная</a></li>
+                    <li><a href="index.html#provisions">Положения</a></li>
+                    <li><a href="index.html#sections">Разделы</a></li>
+                    <li><a href="index.html#news">Анонсы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacts">
+                <h3>Контакты и сведения</h3>
+                <p>Учебная практика «Веб-программирование»</p>
+                <p>Исполнитель: Глушко Карина Ивановна</p>
+                <p>Тема: История избирательных кампаний в Беларуси</p>
+            </div>
+
+            <div class="footer-sources">
+                <h3>Источники</h3>
+                <p>Конституция Республики Беларусь</p>
+                <p>Избирательный кодекс Республики Беларусь</p>
+                <p>Материалы ЦИК РБ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Учебная практика. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

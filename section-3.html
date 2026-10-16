@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предвыборные технологии и медиа-стратегии — История избирательных кампаний в Беларуси</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <style>
+        /* Сетка для блока «Пояснения и рекомендации» с перестроением из 3 в 2 и 1 колонку */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-top: 14px;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 768px) {
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (min-width: 1024px) {
+            .tech-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .tech-card {
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-top: 4px solid #2563eb;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+        .tech-card:hover {
+            transform: scale(1.03) translateY(-4px) !important;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15) !important;
+        }
+        body.dark-theme .tech-card {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+    </style>
+</head>
+
+<body class="page-grid">
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="status-indicator" title="Статус портала: Активен"></span>
+                <div class="brand-text">
+                    <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+                    <h1>История избирательных кампаний в Беларуси</h1>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+            <label for="nav-toggle" class="nav-toggle-btn">
+                <span class="hamburger"></span>
+            </label>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Главная</a>
+                <a href="section-1.html" class="nav-btn">Хроника выборов</a>
+                <a href="section-2.html" class="nav-btn">Республиканские референдумы</a>
+                <a href="section-3.html" class="nav-btn active">Предвыборные технологии</a>
+                <a href="section-4.html" class="nav-btn">Единый день голосования</a>
+                <a href="checklist.html" class="nav-btn">Чек-лист</a>
+                <a href="registry.html" class="nav-btn active">Реестр записей</a>
+                <a href="knowledge.html" class="nav-btn active">Проверка знаний</a>
+                <a href="index.html#footer" class="nav-btn">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Двухколоночный контент страницы -->
+    <div class="page" style="display: grid; grid-template-columns: 260px 1fr; gap: 30px; max-width: 1180px; margin: 0 auto; padding: 24px 16px; align-items: start;">
+        
+        <!-- Боковое меню -->
+        <aside class="page__aside" style="width: 100%;">
+            <nav class="sidenav">
+                <h2 class="sidenav__title">Навигация по разделам</h2>
+                <ul class="sidenav__list" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-1.html" class="sidenav__link">Раздел 1. Хроника выборов</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-2.html" class="sidenav__link">Раздел 2. Референдумы</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-3.html" class="sidenav__link" aria-current="page">Раздел 3. Технологии</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-4.html" class="sidenav__link">Раздел 4. Единый день голосования</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Основное содержимое -->
+        <main class="page__main" style="min-width: 0; overflow: hidden;">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list" style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 16px;">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                    <li class="breadcrumbs__item" aria-current="page" style="margin-left: 8px;">/ Раздел 3. Предвыборные технологии</li>
+                </ol>
+            </nav>
+
+            <h1>Эволюция предвыборных технологий и медиа-стратегий</h1>
+
+            <section id="sub-3-1" style="margin-bottom: 24px;">
+                <h2>3.1. Традиционные формы агитации и организация работы инициативных групп</h2>
+                <p>Традиционные методы ведения избирательных кампаний остаются фундаментом взаимодействия кандидатов с электоратом. Согласно Избирательному кодексу Республики Беларусь, после официальной регистрации инициативной группы начинается этап сбора подписей избирателей. Параллельно кандидаты организуют личные встречи с трудовыми коллективами предприятий, студенческими сообществами и жителями по месту жительства. Распространение печатных агитационных материалов (листовок, буклетов, плакатов) осуществляется через специально выделенные местныеми исполнительными и распорядительными органами информационные стенды и доски объявлений, что гарантирует равные условия для всех участников гонки.</p>
+            </section>
+
+            <section id="sub-3-2" style="margin-bottom: 24px;">
+                <h2>3.2. Роль государственных СМИ, теледебатов и стандарты информирования</h2>
+                <p>Важнейшим инструментом публичной политической конкуренции выступает предоставление гарантированного государством бесплатного эфирного времени на национальных телеканалах и радиостанциях (Белтелерадиокомпания), а также публикация программных платформ в ведущих республиканских и региональных печатных изданиях (таких как «СБ. Беларусь сегодня», «Звязда», «Рэспубліка»). Организация теледебатов позволяет кандидатам в депутаты и на пост Главы государства открыто дискутировать по ключевым вопросам социально-экономического развития страны, внешней политики и государственного строительства в строгом соответствии с регламентом Центральной избирательной комиссии (ЦИК РБ).</p>
+            </section>
+
+            <!-- Блок «Пояснения и рекомендации» с перестроением из 3 колонок в 2 и 1 -->
+            <section id="sub-recommendations" style="margin-bottom: 30px;">
+                <h2>Пояснения и рекомендации по проведению кампании</h2>
+                <div class="tech-grid">
+                    
+                    <div class="tech-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">Норматив 01</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Соблюдение сроков</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Все агитационные печатные и видеоматериалы подлежат обязательному предварительному предоставлению в окружные и территориальные комиссии для проверки на отсутствие признаков экстремизма и соблюдение авторских прав.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #0369a1; text-transform: uppercase; margin-bottom: 6px;">Финансы 02</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Избирательные фонды</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Финансирование расходов на агитацию осуществляется исключительно через специальные избирательные фонды кандидатов. Использование иных финансовых ресурсов или зарубежного финансирования строго запрещено законом.</p>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="card-header" style="font-size: 0.8rem; font-weight: 800; color: #1d4ed8; text-transform: uppercase; margin-bottom: 6px;">Цифра 03</div>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 8px;">Интернет-коммуникации</h3>
+                        <p style="font-size: 0.9rem; color: #334155; margin: 0; line-height: 1.5;">Интеграция официальных веб-ресурсов кандидатов, ведение аккаунтов в социальных мессенджерах и организация прямых эфиров для оперативной отработки обращений граждан и разъяснения своей программы.</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Врезка-памятка на всю ширину -->
+            <div class="notice notice--info" style="margin-bottom: 30px;">
+                <div class="notice__title">Примечание к цифровизации процессов и памятка агитатору</div>
+                <p>С активным развитием цифровых технологий и интернет-пространства значительная часть информационного взаимодействия сместилась в официальные социальные сети, новостные агрегаторы и специализированные интернет-порталы органов государственной власти. Тем не менее, закон четко разграничивает понятие информирования граждан (осуществляется избирательными комиссиями и СМИ на объективной основе) и предвыборной агитации (направленной на побуждение избирателей к голосованию за конкретного кандидата). Агитация накануне дня голосования и в день выборов законом категорически запрещена.</p>
+            </div>
+
+            <section id="sub-3-3" style="margin-bottom: 24px;">
+                <h2>3.3. Единый день голосования и оптимизация логистики кампаний</h2>
+                <p>Важнейшим нововведением в электоральную практику Республики Беларусь стало законодательное закрепление института Единого дня голосования. Данная технологическая новация позволила радикально оптимизировать государственные расходы на проведение выборов, упорядочить работу избирательных комиссий всех уровней и объединить избирательные кампании по выборам депутатов Палаты представителей Национального собрания и местных Советов депутатов в единый синхронизированный цикл, повысив общую явку и вовлеченность граждан.</p>
+            </section>
+
+            <!-- Таблица справочных данных в адаптивной обёртке -->
+            <section id="sub-3-4" style="margin-bottom: 30px;">
+                <h2>3.4. Справочные параметры и нормативы агитационных ресурсов</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <caption>Таблица 3.1 — Характеристики, лимиты и ответственные органы за агитационные материалы</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Канал информирования</th>
+                                <th scope="col">Формат размещения</th>
+                                <th scope="col">Объём / Лимит</th>
+                                <th scope="col">Ответственный орган</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Печатные СМИ</th>
+                                <td>Предвыборная программа кандидата</td>
+                                <td>До 5 страниц печатного текста</td>
+                                <td>Редакции газет / ЦИК РБ</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Телевидение / Радио</th>
+                                <td>Выступление и теледебаты</td>
+                                <td>Фиксированное эфирное время по графику</td>
+                                <td>Национальная государственная телерадиокомпания</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Печатная наружная агитация</th>
+                                <td>Плакаты, листовки, буклеты</td>
+                                <td>Специально отведенные стенды и тумбы</td>
+                                <td>Местные исполнительные комитеты (исполкомы)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html#hero">Главная</a></li>
+                    <li><a href="index.html#provisions">Положения</a></li>
+                    <li><a href="index.html#sections">Разделы</a></li>
+                    <li><a href="index.html#news">Анонсы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacts">
+                <h3>Контакты и сведения</h3>
+                <p>Учебная практика «Веб-программирование»</p>
+                <p>Исполнитель: Глушко Карина Ивановна</p>
+                <p>Тема: История избирательных кампаний в Беларуси</p>
+            </div>
+
+            <div class="footer-sources">
+                <h3>Источники</h3>
+                <p>Конституция Республики Беларусь</p>
+                <p>Избирательный кодекс Республики Беларусь</p>
+                <p>Материалы ЦИК РБ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Учебная практика. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

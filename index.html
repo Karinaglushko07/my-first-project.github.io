@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>История избирательных кампаний в Беларуси</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+  <script src="js/jquery-4.0.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+
+<body class="page-grid">
+
+  <!-- Бегущая строка -->
+  <div class="ticker-wrap page-header-ticker">
+    <div class="ticker-move">
+      Избирательная система Республики Беларусь • Выборы Президентов и Депутатов • Ключевые фигуры • Предвыборочные технологии
+    </div>
+  </div>
+
+  <!-- Шапка сайта -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand">
+        <span class="status-indicator" title="Статус портала: Активен"></span>
+        <div class="brand-text">
+          <img src="assets/img/logo.png" alt="Логотип: История избирательных кампаний в Беларуси" class="site-logo">
+          <h1>История избирательных кампаний в Беларуси</h1>
+        </div>
+      </div>
+
+      <!-- Переключатель мобильного меню -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+      <label for="nav-toggle" class="nav-toggle-btn">
+        <span class="hamburger"></span>
+      </label>
+
+      <nav class="main-nav">
+        <a href="#hero" class="nav-btn active">Главная</a>
+        <a href="#provisions" class="nav-btn">Положения</a>
+        <a href="#sections" class="nav-btn">Разделы</a>
+        <a href="#news" class="nav-btn">Анонсы</a>
+        <a href="checklist.html" class="nav-btn">Чек-лист</a>
+        <a href="registry.html" class="nav-btn active">Реестр записей</a>
+        <a href="knowledge.html" class="nav-btn active">Проверка знаний</a>
+        <a href="#footer" class="nav-btn">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Основное содержимое страницы -->
+  <main class="content-container">
+
+    <!-- Блок-герой -->
+    <section id="hero" class="hero-section">
+      <div class="hero-content">
+        <h2 class="hero-title">Электоральная история независимой Беларуси</h2>
+        <p class="hero-description">
+          Информационный портал о становлении избирательной системы Республики Беларусь, этапах проведения президентских и парламентских выборов, ключевых референдумах и развитии предвыборных технологий.
+        </p>
+        <div class="hero-actions">
+          <a href="#sections" class="card-btn primary-btn">Изучить материалы</a>
+          <a href="#provisions" class="card-btn secondary-btn">Основная база</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Секция ключевых сведений -->
+    <section id="provisions" class="provisions-section">
+      <h2 class="section-title">Основные положения по теме</h2>
+      <ul class="provisions-list">
+        <li><strong>Конституционная основа:</strong> Избирательная система базируется на Конституции Республики Беларусь и Избирательном кодексе РБ.</li>
+        <li><strong>Принципы выборов:</strong> Всеобщие, свободные, равные, прямые и тайные выборы.</li>
+        <li><strong>Органы проведения:</strong> Подготовку и проведение выборов обеспечивают избирательные комиссии во главе с Центральной избирательной комиссией (ЦИК).</li>
+        <li><strong>Институциональное развитие:</strong> Переход к проведению Единого дня голосования для оптимизации избирательного процесса.</li>
+      </ul>
+      <div class="callout-box">
+        <p><strong>Примечание:</strong> Подробные материалы и нормативные акты доступны на официальном ресурсе <a href="https://rec.gov.by" target="_blank" rel="noopener noreferrer">Центральной избирательной комиссии Республики Беларусь</a>.</p>
+      </div>
+    </section>
+
+    <!-- Задание 7 & 8: Блок интерактивного поиска и вызова модального окна -->
+    <div style="margin-bottom: 25px;">
+      <!-- Кнопка модального окна -->
+      <button type="button" id="open-modal-btn" class="card-btn primary-btn" style="margin-bottom: 15px;">ℹ️ Инструкция к порталу</button>
+
+      <!-- Поле фильтрации и поиска -->
+      <div class="search-box">
+        <input type="text" id="search-input" placeholder="Поиск по разделам проекта..." class="search-input">
+        <span id="search-results-count" class="search-count"></span>
+      </div>
+    </div>
+
+    <!-- Секция разделов проекта -->
+    <section id="sections" class="cards-section">
+      <h2 class="section-title">Разделы проекта</h2>
+      <div class="cards-grid">
+
+        <!-- Карточка 1 -->
+        <article class="card card-delay-1">
+          <img src="assets/img/section-1-banner.png" alt="Хроника выборов" class="card-img">
+          <div class="card-body">
+            <div class="card-header">Раздел 1: Хроника выборов</div>
+            <h3 class="card-title">Хроника выборов (1994–2025)</h3>
+            <p class="card-text">История президентских кампаний, ключевые даты и вехи развития суверенного государства.</p>
+            <a href="section-1.html" class="card-btn">Подробнее</a>
+          </div>
+        </article>
+
+        <!-- Карточка 2 -->
+        <article class="card card-delay-2">
+          <img src="assets/img/section-2-banner.png" alt="Республиканские референдумы" class="card-img">
+          <div class="card-body">
+            <div class="card-header">Раздел 2: Референдумы</div>
+            <h3 class="card-title">Республиканские референдумы</h3>
+            <p class="card-text">Анализ важнейших плебисцитов, определивших государственное устройство и векторы развития.</p>
+            <a href="section-2.html" class="card-btn">Подробнее</a>
+          </div>
+        </article>
+
+        <!-- Карточка 3 -->
+        <article class="card card-radial card-delay-3">
+          <img src="assets/img/section-3-banner.png" alt="Предвыборные технологии" class="card-img">
+          <div class="card-body">
+            <div class="card-header">Раздел 3: Технологии</div>
+            <h3 class="card-title">Предвыборные технологии</h3>
+            <p class="card-text">Методы агитации, эволюция медиа-стратегий и работа с избирателями в разные периоды.</p>
+            <a href="section-3.html" class="card-btn">Подробнее</a>
+          </div>
+        </article>
+
+        <!-- Карточка 4 -->
+        <article class="card card-delay-4">
+          <img src="assets/img/section-4-banner.png" alt="Единый день голосования" class="card-img">
+          <div class="card-body">
+            <div class="card-header">Раздел 4: Реформы</div>
+            <h3 class="card-title">Единый день голосования</h3>
+            <p class="card-text">Современный этап электоральных реформ и обновление конституционных норм.</p>
+            <a href="section-4.html" class="card-btn">Подробнее</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Обновленная Лента анонсов и новостей -->
+    <!-- Лента анонсов и новостей -->
+    <section id="news" class="news-section">
+      <h2 class="section-title">Лента анонсов и новостей</h2>
+      <div class="news-grid">
+
+        <article class="news-card">
+          <span class="news-date">16 Октября 2026</span>
+          <h3>Заседание 7-й Генеральной Ассамблеи Всемирной ассоциации избирательных органов (A-WEB)</h3>
+          <p>С 12 по 16 октября в Маниле (Республика Филиппины) проводилась 7-я Генеральная Ассамблея Всемирной ассоциации избирательных органов (A-WEB). В работе международного электорального форума приняла участие белорусская делегация во главе с заместителем Председателя ЦИК Беларусь Алексеем Башаном.</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/zasedanie-7-j-generalnoj-assamblei-vsemirnoj-assotsiatsii-izbiratelnyx-organov-a-web-2578/" class="news-link">Подробнее →</a>
+        </article>
+
+        <article class="news-card">
+          <span class="news-date">15 Октября 2026</span>
+          <h3>Рабочая поездка Председателя ЦИК Беларуси в Брестскую область</h3>
+          <p>13 октября Председатель Центральной избирательной комиссии Игорь Карпенко посетил Брестский филиал частного учреждения образования «Колледж бизнеса и права», где выступил с открытой лекцией о функционировании избирательной системы нашей страны.</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/rabochaja-poezdka-predsedatelja-tsik-belarusi-v-brestskuju-oblast-2577/" class="news-link">Подробнее →</a>
+        </article>
+
+        <article class="news-card">
+          <span class="news-date">24 Сентября 2026</span>
+          <h3>Кыргызская делегация изучает белорусский опыт правового просвещения молодежи</h3>
+          <p>В рамках Соглашения о сотрудничестве между Центральной избирательной комиссией Республики Беларусь и Центральной комиссией Республики Кыргызстан по выборам и проведению референдумов белорусская сторона делится опытом по вовлечению молодежи в электоральную сферу.</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/kyrgyzskaja-delegatsija-izuchaet-belorusskij-opyt-pravovogo-prosveschenija-molodezhi-v-ramkax-dvustoronnego-2563/" class="news-link">Подробнее →</a>
+        </article>
+
+        <article class="news-card">
+          <span class="news-date">21 Сентября 2026</span>
+          <h3>Выборы депутатов Государственной Думы Федерального Собрания Российской Федерации</h3>
+          <p>Председатель ЦИК Беларуси Игорь Карпенко и начальник отдела организационной, финансовой работы и международного сотрудничества аппарата ЦИК Беларуси Сергей Шмарловский приняли участие в международном наблюдении за выборами депутатов Государственной Думы.</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/vybory-deputatov-gosudarstvennoj-dumy-federalnogo-sobranija-rossijskoj-federatsii-2560/" class="news-link">Подробнее →</a>
+        </article>
+
+        <article class="news-card">
+          <span class="news-date">18 Сентября 2026</span>
+          <h3>Международная научно-практическая конференция «Выборы в период турбулентности»</h3>
+          <p>В Москве руководители избирательных органов стран ближнего и дальнего зарубежья обменялись опытом организации голосования в условиях современных вызовов. Главной темой обсуждения стало обеспечение стабильности избирательного процесса.</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/mezhdunarodnaja-nauchno-prakticheskaja-konferentsija-vybory-v-period-turbulentnosti-proxodit-v-moskve-18-2556/" class="news-link">Подробнее →</a>
+        </article>
+
+        <article class="news-card">
+          <span class="news-date">03 Сентября 2026</span>
+          <h3>Рабочая поездка Председателя ЦИК в Витебскую область</h3>
+          <p>1–2 сентября Председатель Центральной избирательной комиссии Игорь Карпенко совершил рабочую поездку в Витебскую область, приуроченную к началу нового учебного года. В День знаний глава ЦИК разделил праздник с учащимися ГУО «Межевская средняя школа».</p>
+          <a href="https://rec.gov.by/ru/news-ru/view/rabochaja-poezdka-predsedatelja-tsik-v-vitebskuju-oblast-2544/" class="news-link">Подробнее →</a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Подвал страницы -->
+  <footer id="footer" class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#provisions">Положения</a></li>
+          <li><a href="#sections">Разделы</a></li>
+          <li><a href="#news">Анонсы</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <h4>Контакты и сведения</h4>
+        <p>Учебная практика «Веб-программирование»</p>
+        <p>Исполнитель: Глушко Карина Ивановна</p>
+        <p>Тема: История избирательных кампаний в Беларуси</p>
+      </div>
+
+      <div class="footer-sources">
+        <h4>Источники</h4>
+        <p>Конституция Республики Беларусь</p>
+        <p>Избирательный кодекс Республики Беларусь</p>
+        <p>Материалы ЦИК РБ</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Учебная практика. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- Модальное окно -->
+  <div id="info-modal" class="modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
+    <div class="modal-window">
+      <h2 id="modal-title">Справочная информация</h2>
+      <p>Данный информационный портал разработан в рамках учебной практики «Веб-программирование».</p>
+      <p>Используйте интерактивный чек-лист для проверки полноты материалов по электоральным процессам в Беларуси.</p>
+      <button type="button" id="close-modal-btn" class="card-btn secondary-btn">Закрыть окно</button>
+    </div>
+  </div>
+
+</body>
+
+</html>

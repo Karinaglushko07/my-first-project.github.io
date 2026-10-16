@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Республиканские референдумы — История избирательных кампаний в Беларуси</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <style>
+        /* Стили для адаптивного блока порядка действий в 2 колонки */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-top: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .step-card {
+            background: #ffffff;
+            border: 1px solid #bfdbfe;
+            border-top: 4px solid #2563eb;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body.dark-theme .step-card {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+
+        /* Карточки-ссылки на референдумы */
+        .referendum-card {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+            cursor: pointer;
+        }
+
+        .referendum-card:hover {
+            transform: scale(1.03) translateY(-4px) !important;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15) !important;
+            color: inherit;
+        }
+
+        .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+        }
+
+        .step-card:hover {
+            transform: scale(1.03) translateY(-4px) !important;
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15) !important;
+        }
+    </style>
+</head>
+
+<body class="page-grid">
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="status-indicator" title="Статус портала: Активен"></span>
+                <div class="brand-text">
+                    <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+                    <h1>История избирательных кампаний в Беларуси</h1>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+            <label for="nav-toggle" class="nav-toggle-btn">
+                <span class="hamburger"></span>
+            </label>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Главная</a>
+                <a href="section-1.html" class="nav-btn">Хроника выборов</a>
+                <a href="section-2.html" class="nav-btn active">Республиканские референдумы</a>
+                <a href="section-3.html" class="nav-btn">Предвыборные технологии</a>
+                <a href="section-4.html" class="nav-btn">Единый день голосования</a>
+                <a href="checklist.html" class="nav-btn">Чек-лист</a>
+                <a href="registry.html" class="nav-btn">Реестр записей</a>
+                <a href="knowledge.html" class="nav-btn">Проверка знаний</a>
+                <a href="index.html#footer" class="nav-btn">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Двухколоночный контент страницы -->
+    <div class="page"
+        style="display: grid; grid-template-columns: 260px 1fr; gap: 30px; max-width: 1180px; margin: 0 auto; padding: 24px 16px; align-items: start;">
+
+        <!-- Боковое меню -->
+        <aside class="page__aside" style="width: 100%;">
+            <nav class="sidenav">
+                <h2 class="sidenav__title">Навигация по разделам</h2>
+                <ul class="sidenav__list" style="list-style: none; padding: 0; margin: 0;">
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-1.html"
+                            class="sidenav__link">Раздел 1. Хроника выборов</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-2.html" class="sidenav__link"
+                            aria-current="page">Раздел 2. Референдумы</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-3.html"
+                            class="sidenav__link">Раздел 3. Технологии</a></li>
+                    <li class="sidenav__item" style="margin-bottom: 8px;"><a href="section-4.html"
+                            class="sidenav__link">Раздел 4. Единый день голосования</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Основное содержимое -->
+        <main class="page__main" style="min-width: 0; overflow: hidden;">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list"
+                    style="display: flex; flex-wrap: wrap; list-style: none; padding: 0; font-size: 0.9rem; margin-bottom: 16px;">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                    <li class="breadcrumbs__item" aria-current="page" style="margin-left: 8px;">/ Раздел 2.
+                        Республиканские референдумы</li>
+                </ol>
+            </nav>
+
+            <h1>Республиканские референдумы в истории Беларуси</h1>
+
+            <section id="sub-2-1" style="margin-bottom: 24px;">
+                <h2>2.1. Значение плебисцитов в государственном строительстве</h2>
+                <p>Республиканские референдумы выступили важнейшим институтом прямой демократии и ключевым инструментом
+                    принятия стратегических решений по определению государственной символики, языковой политики,
+                    социально-экономической интеграции и внесения фундаментальных поправок в Конституцию Республики
+                    Беларусь. Плебисциты позволяют напрямую выразить волю народа по самым острым вопросам
+                    общественного развития.</p>
+            </section>
+
+            <!-- Блок-предупреждение на всю ширину -->
+            <div class="notice notice--warning" style="margin-bottom: 24px;">
+                <div class="notice__title">Юридическая сила и статус решений референдума</div>
+                <p>Согласно законодательству, решения, принятые республиканским референдумом, обладают высшей
+                    юридической силой, обязательны для исполнения на всей территории Республики Беларусь и не нуждаются
+                    в утверждении какими-либо государственными органами. Они могут быть отменены или изменены
+                    исключительно путем проведения нового республиканского референдума.</p>
+            </div>
+
+            <!-- Блок «Порядок действий» с нумерованными шагами -->
+            <section id="sub-2-2" style="margin-bottom: 28px;">
+                <h2>2.2. Порядок подготовки и проведения республиканского референдума</h2>
+                <div class="notice notice--step" style="padding: 16px; border-radius: 8px;">
+                    <div class="notice__title" style="margin-bottom: 12px;">Алгоритм инициации и проведения референдума
+                    </div>
+
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div style="font-weight: 800; color: #2563eb; margin-bottom: 6px;">Шаг 01</div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 6px;">Инициация вопроса</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Право инициирования принадлежит Президенту РБ,
+                                Палате представителей и Совету Республики Национального собрания, а также гражданам в
+                                порядке народной инициативы при условии сбора не менее 450 тыс. подписей.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div style="font-weight: 800; color: #2563eb; margin-bottom: 6px;">Шаг 02</div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 6px;">Назначение даты</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Официальное рассмотрение и принятие решения Главой
+                                государства о назначении даты проведения республиканского референдума путем издания
+                                соответствующего Указа.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div style="font-weight: 800; color: #2563eb; margin-bottom: 6px;">Шаг 03</div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 6px;">Формирование комиссий</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Образование Центральной, территориальных и
+                                участковых комиссий по референдуму, составление точных списков граждан-избирателей и
+                                развертывание разъяснительной работы.</p>
+                        </div>
+
+                        <div class="step-card">
+                            <div style="font-weight: 800; color: #2563eb; margin-bottom: 6px;">Шаг 04</div>
+                            <h4 style="font-size: 1.05rem; margin-bottom: 6px;">Голосование и итоги</h4>
+                            <p style="font-size: 0.9rem; margin: 0;">Проведение всенародного голосования в основной и
+                                досрочный дни, подведение официальных итогов Центризбиркомом (ЦИК) и вступление решения
+                                в юридическую силу.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Блок справочных сведений в виде интерактивных карточек-ссылок на Википедию -->
+            <section id="sub-2-cards" style="margin-bottom: 30px;">
+                <h2>Подробные сведения о республиканских референдумах</h2>
+                <div class="cards-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 14px;">
+
+                    <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D0%B4%D1%83%D0%BC_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8_(1995)?ysclid=mv9w6zx8vx427297169"
+                        target="_blank" class="card referendum-card">
+                        <div class="card-header">Референдум 1995</div>
+                        <h3>Символика и языки</h3>
+                        <p>14 мая 1995 года граждане поддержали придание русскому языку равного с белорусским статуса,
+                            установление новых государственных флага и герба, а также курс на экономическую интеграцию с
+                            РФ. *(Нажмите, чтобы открыть статью в Википедии)*</p>
+                    </a>
+
+                    <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D0%B4%D1%83%D0%BC_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8_(1996)?ysclid=mv9w6t3bay879426444"
+                        target="_blank" class="card card-radial referendum-card">
+                        <div class="card-header">Референдум 1996</div>
+                        <h3>Конституционная реформа</h3>
+                        <p>24 ноября 1996 года была принята новая редакция Конституции РБ, которая перераспределила
+                            полномочия ветвей власти, учредила двухпалатный Парламент и укрепила вертикаль власти. *(Нажмите, чтобы открыть в Википедии)*</p>
+                    </a>
+
+                    <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D0%B4%D1%83%D0%BC_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8_(2004)?ysclid=mv9w6pli4j764758281"
+                        target="_blank" class="card referendum-card">
+                        <div class="card-header">Референдум 2004</div>
+                        <h3>Институт президентства</h3>
+                        <p>17 октября 2004 года на голосование был вынесен вопрос об отмене ограничения на количество
+                            сроков, в течение которых одно и то же лицо может занимать пост Президента РБ.
+                            *(Нажмите, чтобы открыть в Википедии)*</p>
+                    </a>
+
+                    <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D0%B4%D1%83%D0%BC_%D0%B2_%D0%91%D0%B5%D0%BB%D0%B0%D1%80%D1%83%D1%81%D0%B8_(2022)?ysclid=mv9w4g8nhj828116444"
+                        target="_blank" class="card card-radial referendum-card">
+                        <div class="card-header">Референдум 2022</div>
+                        <h3>Обновление Конституции</h3>
+                        <p>27 февраля 2022 года состоялся плебисцит по обновлению Основного Закона страны, закреплению
+                            конституционного статуса Всебелорусского народного собрания (ВНС). *(Нажмите,
+                            чтобы открыть в Википедии)*</p>
+                    </a>
+
+                </div>
+            </section>
+
+            <!-- Сводная таблица -->
+            <section id="sub-2-3" style="margin-bottom: 30px;">
+                <h2>2.3. Сводные сведения о референдумах РБ</h2>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <caption>Таблица 2.1 — Назначение и ограничения плебисцитов (1995–2022)</caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Дата плебисцита</th>
+                                <th scope="col">Ключевая тематика</th>
+                                <th scope="col">Назначение решения</th>
+                                <th scope="col">Законодательные ограничения</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">14 мая 1995</th>
+                                <td>Госязыки, символика, экономическая интеграция</td>
+                                <td>Изменение государственной символики, статус русского языка</td>
+                                <td>Решения имеют обязательную юридическую силу</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">24 ноября 1996</th>
+                                <td>Принятие новой редакции Конституции РБ</td>
+                                <td>Реформирование системы органов госвласти</td>
+                                <td>Одобрено более чем половиной граждан</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17 октября 2004</th>
+                                <td>Условия участия в президентских выборах</td>
+                                <td>Снятие ограничений по количеству сроков</td>
+                                <td>Внесение изменений в ст. 81 Конституции</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">27 февраля 2022</th>
+                                <td>Обновление Конституции и статус ВНС</td>
+                                <td>Закрепление Всебелорусского народного собрания</td>
+                                <td>Изменения вступили в силу 15 марта 2022 г.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="footer" class="site-footer">
+        <div class="footer-container">
+            <div class="footer-nav">
+                <h3>Навигация</h3>
+                <ul>
+                    <li><a href="index.html#hero">Главная</a></li>
+                    <li><a href="index.html#provisions">Положения</a></li>
+                    <li><a href="index.html#sections">Разделы</a></li>
+                    <li><a href="index.html#news">Анонсы</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-contacts">
+                <h3>Контакты и сведения</h3>
+                <p>Учебная практика «Веб-программирование»</p>
+                <p>Исполнитель: Глушко Карина Ивановна</p>
+                <p>Тема: История избирательных кампаний в Беларуси</p>
+            </div>
+
+            <div class="footer-sources">
+                <h3>Источники</h3>
+                <p>Конституция Республики Беларусь</p>
+                <p>Избирательный кодекс Республики Беларусь</p>
+                <p>Материалы ЦИК РБ</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Учебная практика. Все права защищены.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

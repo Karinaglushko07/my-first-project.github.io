@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реестр записей — История избирательных кампаний в Беларуси</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/smoothness/jquery-ui.css">
+
+    <style>
+        body.dark-theme .registry-controls,
+        body.dark-theme .stats-panel {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            color: #f1f5f9 !important;
+        }
+
+        body.dark-theme .registry-controls input,
+        body.dark-theme .registry-controls select {
+            background-color: #0f172a !important;
+            color: #f1f5f9 !important;
+            border-color: #475569 !important;
+        }
+
+        body.dark-theme .registry-controls input::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        body.dark-theme #registry-counter,
+        body.dark-theme .stats-panel h3 {
+            color: #f1f5f9 !important;
+        }
+
+        body.dark-theme .stat-group {
+            background: #0f172a !important;
+            border-color: #334155 !important;
+        }
+
+        body.dark-theme .stat-bar-track {
+            background: #334155 !important;
+        }
+
+        body.dark-theme .stat-bar-fill {
+            background: #38bdf8 !important;
+        }
+
+        body.dark-theme .data-table {
+            background-color: #1e293b !important;
+            color: #f1f5f9 !important;
+        }
+
+        body.dark-theme .data-table th,
+        body.dark-theme .data-table td {
+            border-color: #334155 !important;
+        }
+
+        .stat-group {
+            background: #f8fafc;
+            padding: 12px 15px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 6px;
+            margin-bottom: 8px;
+        }
+
+        .stat-bar-track {
+            flex: 1;
+            background: #e2e8f0;
+            border-radius: 4px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .stat-bar-fill {
+            background: #2563eb;
+            height: 100%;
+            width: 0%;
+            transition: width 0.8s ease-in-out;
+            border-radius: 4px;
+        }
+
+        /* Стили уведомлений (Задание 6) */
+        .app-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: opacity 0.3s ease;
+        }
+
+        .app-notification.success {
+            background-color: #f0fdf4;
+            color: #16a34a;
+            border: 1px solid #bbf7d0;
+        }
+
+        .app-notification.error {
+            background-color: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+        }
+    </style>
+
+    <script src="js/jquery-4.0.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" defer></script>
+    <script src="js/app.js" defer></script>
+</head>
+
+<body class="page-grid">
+
+    <header class="site-header">
+        <div class="header-container">
+            <div class="brand">
+                <span class="status-indicator" title="Статус портала: Активен"></span>
+                <div class="brand-text">
+                    <img src="assets/img/logo.png" alt="Логотип" class="site-logo">
+                    <h1>История избирательных кампаний в Беларуси</h1>
+                </div>
+            </div>
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-label="Открыть меню навигации">
+            <label for="nav-toggle" class="nav-toggle-btn">
+                <span class="hamburger"></span>
+            </label>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-btn">Главная</a>
+                <a href="section-1.html" class="nav-btn">Хроника выборов</a>
+                <a href="section-2.html" class="nav-btn">Республиканские референдумы</a>
+                <a href="section-3.html" class="nav-btn">Предвыборные технологии</a>
+                <a href="section-4.html" class="nav-btn">Единый день голосования</a>
+                <a href="registry.html" class="nav-btn active">Реестр записей</a>
+                <a href="knowledge.html" class="nav-btn">Проверка знаний</a>
+                <a href="checklist.html" class="nav-btn">Чек-лист</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content-container">
+        <nav class="breadcrumbs" aria-label="Хлебные крошки">
+            <ol class="breadcrumbs__list">
+                <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                <li class="breadcrumbs__item" aria-current="page">Реестр и каталог записей</li>
+            </ol>
+        </nav>
+
+        <h2 class="section-title">Каталог электоральных документов и записей</h2>
+        <p class="section-desc">Интерактивный реестр с возможностью фильтрации по разделам, текстового поиска и
+            сортировки по дате.</p>
+
+        <div class="stats-panel"
+            style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 25px;">
+            <h3 style="margin-top: 0; margin-bottom: 12px; font-size: 1.1rem; color: #1e293b;">📊 Асинхронная статистика
+                каталога</h3>
+            <div id="async-stats-status" style="font-style: italic; color: #64748b; margin-bottom: 15px;">
+                Инициализация асинхронного расчёта...
+            </div>
+            <div id="async-stats-content"
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;"></div>
+        </div>
+
+        <!-- Панель фильтров и сортировки с компонентами форм (Задание 7) -->
+        <div class="registry-controls"
+            style="background: #ffffff; padding: 20px; border-radius: 12px; border: 1px solid #cbd5e1; margin-bottom: 25px; display: flex; flex-wrap: wrap; gap: 15px; align-items: center; justify-content: space-between;">
+
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; flex: 1; min-width: 300px; align-items: center;">
+                <!-- Текстовый поиск -->
+                <div style="flex: 1; min-width: 200px;">
+                    <label for="registry-search"
+                        style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: #475569;">Поиск
+                        по записям:</label>
+                    <input type="text" id="registry-search" class="form-control"
+                        placeholder="Введите ключевое слово...">
+                </div>
+
+                <!-- Выбор раздела (Select) -->
+                <div style="min-width: 200px;">
+                    <label for="registry-section-filter"
+                        style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 4px; color: #475569;">Фильтр
+                        по разделу:</label>
+                    <select id="registry-section-filter" class="form-control">
+                        <option value="">Все разделы проекта</option>
+                        <option value="section-1">Раздел 1. Хроника выборов</option>
+                        <option value="section-2">Раздел 2. Референдумы</option>
+                        <option value="section-3">Раздел 3. Технологии</option>
+                        <option value="section-4">Раздел 4. Единый день голосования</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="registry-counter" style="margin-bottom: 15px; font-weight: 600; color: #475569;">Загрузка каталога...
+        </div>
+
+        <div class="table-responsive">
+            <table class="data-table" id="registry-table">
+                <caption>Таблица — Реестр исторических и правовых документов электоральных кампаний</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">№</th>
+                        <th scope="col">Наименование записи</th>
+                        <th scope="col">Категория</th>
+                        <th scope="col">Дата</th>
+                        <th scope="col">Раздел</th>
+                        <th scope="col">Аннотация</th>
+                    </tr>
+                </thead>
+                <tbody id="registry-tbody"></tbody>
+            </table>
+        </div>
+    </main>
+
+    <!-- Блок уведомления (Задание 6) -->
+    <div id="app-notification" class="app-notification" role="status" aria-live="polite" style="display: none;">
+        <span id="notification-text"></span>
+    </div>
+
+    <!-- Подвал страницы -->
+  <footer id="footer" class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <h3>Навигация</h3>
+        <ul>
+          <li><a href="index.html#hero">Главная</a></li>
+          <li><a href="registry.html">Реестр записей</a></li>
+          <li><a href="checklist.html">Чек-лист</a></li>
+          <li><a href="knowledge.html">Проверка знаний</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contacts">
+        <h3>Контакты и сведения</h3>
+        <p>Учебная практика «Веб-программирование»</p>
+        <p>Исполнитель: Глушко Карина Ивановна</p>
+        <p>Тема: История избирательных кампаний в Беларуси</p>
+      </div>
+
+      <div class="footer-sources">
+        <h3>Источники</h3>
+        <p>Конституция Республики Беларусь</p>
+        <p>Избирательный кодекс Республики Беларусь</p>
+        <p>Материалы ЦИК РБ</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Учебная практика. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
