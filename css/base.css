@@ -1343,3 +1343,40 @@ body.dark-theme fieldset legend {
   -webkit-user-select: none;
   user-select: none;
 }
+/* Исправление расположения вариантов ответа в чек-листе */
+.checklist-item, 
+.checklist-question {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 12px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Контейнер для радиокнопок (Соответствует / Не соответствует) */
+.checklist-options, 
+.radio-group-container {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 15px !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+/* Стили для отдельных вариантов с радиокнопками */
+.checklist-options label,
+.radio-option {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+}
+
+/* Поля для комментариев внутри чек-листа */
+.checklist-item input[type="text"],
+.checklist-item textarea {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
