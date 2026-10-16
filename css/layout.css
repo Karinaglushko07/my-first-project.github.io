@@ -604,3 +604,29 @@ body.dark-theme td span {
   border-radius: 6px;
   font-weight: 600;
 }
+/* Жесткое исправление для элементов чек-листа, чтобы они не вылезали за границы */
+.checklist-form-card *, 
+.checklist-item *, 
+fieldset * {
+  box-sizing: border-box !important;
+  max-width: 100% !important;
+}
+
+/* Выстраиваем радиокнопки вертикально или с надежным переносом */
+.checklist-form-card label,
+.checklist-item label {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  position: relative !important;
+  right: auto !important;
+  left: auto !important;
+}
+
+/* Убираем любые вылетающие абсолютные позиции */
+.checklist-form-card input[type="radio"],
+.checklist-item input[type="radio"] {
+  position: static !important;
+  margin-right: 6px !important;
+}
