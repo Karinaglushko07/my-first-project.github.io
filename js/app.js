@@ -793,18 +793,52 @@ function initSelfAssessmentSlider() {
    Сортировка
    ========================================================================== */
 function initSortableSteps() {
-  var $sortableList = $('#sortable-steps');
-  if (!$sortableList.length) return;
+  var $list = $('#sortable-steps');
+  if (!$list.length) return;
 
-  $sortableList.sortable({
-    placeholder: "ui-state-highlight",
-    cursor: "grabbing",
-    opacity: 0.8,
-    axis: "y",   
-    delay: 150,    
-    distance: 5     
+  var items = $list.find('.sortable-item').toArray();
+  var draggingItem = null;
+
+  items.forEach(function(item) {
+    // Событие для телефона (палец)
+    item.addEventListener('touchstart', function(e) {
+      draggingItem = this;
+      this.style.opacity = '0.6';
+      this.style.transform = 'scale(1.02)';
+      this.style.zIndex = '1000';
+    }, { passive: true });
+
+    item.addEventListener('touchend', function() {
+      if (draggingItem) {
+        draggingItem.style.opacity = '1';
+        draggingItem.style.transform = 'none';
+        draggingItem.style.zIndex = 'auto';
+        draggingItem = null;
+      }
+    });
+
+    item.addEventListener('touchmove', function(e) {
+      if (!draggingItem) return;
+      // Отменяем стандартный скролл страницы, пока тащим блок
+      e.preventDefault();
+
+      var touch = e.touches[0];
+      var currentY = touch.clientY;
+
+      // Ищем элемент, над которым сейчас находится палец
+      var siblings = items.filter(function(el) { return el !== draggingItem; });
+      var nextSibling = siblings.find(function(sibling) {
+        var rect = sibling.getBoundingClientRect();
+        return currentY < rect.top + rect.height / 2;
+      });
+
+      if (nextSibling) {
+        $list[0].insertBefore(draggingItem, nextSibling);
+      } else {
+        $list[0].appendChild(draggingItem);
+      }
+    }, { passive: false });
   });
-  $sortableList.disableSelection();
 }
 
 /* ==========================================================================
