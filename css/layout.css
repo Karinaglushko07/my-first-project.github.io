@@ -1,0 +1,606 @@
+/* ==========================================
+   Базовый каркас и элементы (структура без конфликтов)
+   ========================================== */
+body.page-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.content-container {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  padding: 24px 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+/* ==========================================
+   Шапка сайта и базовые элементы
+   ========================================== */
+.site-header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #065f46 100%);
+  color: #ffffff;
+  padding: 12px 0;
+  width: 100%;
+  position: relative;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+}
+
+.header-container {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.brand {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 10px;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  min-width: 0;
+  /* Предотвращает переполнение */
+}
+
+.brand-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-text h1 {
+  color: #ffffff !important;
+  /* Четкий белый цвет названия */
+  font-size: clamp(0.95rem, 3.5vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.site-logo {
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  border-radius: 50%;
+  border: 2px solid #3b82f6;
+  -object-fit: cover;
+  object-fit: cover;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+/* Блок-герой */
+.hero-section {
+  background: #1e293b;
+  background: -webkit-linear-gradient(135deg, #1e293b, #0f172a);
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-title {
+  color: #f8fafc;
+  margin-bottom: 16px;
+}
+
+.hero-description {
+  color: #cbd5e1;
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.secondary-btn {
+  background: linear-gradient(135deg, #475569, #334155);
+}
+
+/* Секция сведений и врезки */
+.provisions-section {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 32px;
+}
+
+.provisions-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.provisions-list li {
+  margin-bottom: 10px;
+}
+
+.callout-box {
+  background-color: #eff6ff;
+  border-left: 5px solid #2563eb;
+  padding: 16px;
+  border-radius: 6px;
+  color: #1e3a8a;
+}
+
+.callout-box a {
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Карточки */
+.card {
+  background: #ffffff;
+  background: -webkit-linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+  background: linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-top: 4px solid #2563eb;
+  border-radius: 12px;
+  padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.card-radial {
+  background: -webkit-radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
+  border: 1px solid #7dd3fc;
+  border-top: 4px solid #0284c7;
+}
+
+.card-header {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* Новости */
+.news-card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.news-link {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+/* Двухколоночные страницы */
+.page {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  padding: 24px 0;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
+.sidenav {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.sidenav__title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #cbd5e1;
+  padding-bottom: 6px;
+}
+
+.sidenav__list {
+  list-style: none;
+}
+
+.sidenav__link {
+  display: block;
+  padding: 8px 12px;
+  color: #334155;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.sidenav__link[aria-current="page"] {
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 700;
+  border-left: 4px solid #2563eb;
+}
+
+.breadcrumbs__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  list-style: none;
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 16px;
+}
+
+.breadcrumbs__item+.breadcrumbs__item::before {
+  content: " / ";
+  padding: 0 8px;
+}
+
+.breadcrumbs__link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.notice {
+  padding: 16px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.notice--warning {
+  background-color: #fffbe2;
+  border-left: 5px solid #d97706;
+  color: #92400e;
+}
+
+.notice--info {
+  background-color: #eff6ff;
+  border-left: 5px solid #2563eb;
+  color: #1e3a8a;
+}
+
+.notice--step {
+  background-color: #f0fdf4;
+  border-left: 5px solid #16a34a;
+  color: #14532d;
+}
+
+.notice__title {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+/* Адаптивные таблицы */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 14px;
+  border: 1px solid #e2e8f0;
+}
+
+.data-table thead th {
+  background-color: #1e293b;
+  color: #ffffff;
+}
+
+/* Подвал */
+.site-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 32px 0 16px 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.footer-container h4 {
+  color: #f1f5f9;
+  margin-bottom: 12px;
+}
+
+.footer-nav ul {
+  list-style: none;
+}
+
+.footer-nav a {
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  width: min(100% - 32px, 1180px);
+  margin: 24px auto 0 auto;
+  border-top: 1px solid #334155;
+  padding-top: 16px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Стили для адаптации панели фильтров и таблицы под тёмную тему */
+body.dark-theme .registry-controls {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .registry-controls input,
+body.dark-theme .registry-controls select {
+  background-color: #0f172a !important;
+  color: #f1f5f9 !important;
+  border-color: #475569 !important;
+}
+
+body.dark-theme .registry-controls input::placeholder {
+  color: #94a3b8 !important;
+}
+
+body.dark-theme #registry-counter {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .data-table {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .data-table th,
+body.dark-theme .data-table td {
+  border-color: #334155 !important;
+}
+
+body.dark-theme .data-table tbody tr:hover {
+  background-color: rgba(56, 189, 248, 0.1) !important;
+}
+
+/* Активное состояние кнопок сортировки с индикацией */
+.sort-btn.active {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: #2563eb !important;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
+
+body.dark-theme .sort-btn {
+  background-color: #1e293b;
+  color: #f1f5f9;
+  border-color: #475569;
+}
+
+body.dark-theme .sort-btn.active {
+  background-color: #38bdf8 !important;
+  color: #0f172a !important;
+  border-color: #38bdf8 !important;
+}
+/* Стили гистограмм и панели статистики (Задание 9) */
+.stat-group {
+  background: #f8fafc;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.stat-bar-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+}
+.stat-bar-track {
+  flex: 1;
+  background: #e2e8f0;
+  border-radius: 4px;
+  height: 12px;
+  overflow: hidden;
+}
+.stat-bar-fill {
+  background: #2563eb;
+  height: 100%;
+  width: 0%; /* Анимируется через JS */
+  transition: width 0.8s ease-in-out;
+  border-radius: 4px;
+}
+/* Поддержка тёмной темы для статистики */
+body.dark-theme .stats-panel {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f1f5f9 !important;
+}
+body.dark-theme .stats-panel h3 {
+  color: #f1f5f9 !important;
+}
+body.dark-theme .stat-group {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+}
+body.dark-theme .stat-bar-track {
+  background: #334155 !important;
+}
+body.dark-theme .stat-bar-fill {
+  background: #38bdf8 !important;
+}
+/* ==========================================
+   Задание 6: Стили уведомлений и индикаторов
+   ========================================== */
+.app-notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease;
+}
+
+.app-notification.success {
+  background-color: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+}
+
+.app-notification.error {
+  background-color: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+/* ==========================================================================
+   Идеальная читаемость текста в футере (на всех страницах)
+   ========================================================================== */
+
+/* 1. Заголовки колонок в футере всегда белые и четкие */
+.site-footer h4,
+.site-footer .footer-container h4 {
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+}
+
+/* 2. Обычный текст и абзацы в футере */
+.site-footer p,
+.site-footer li,
+.site-footer span {
+  color: #e2e8f0 !important; /* Светло-серый, отлично читаемый оттенок */
+}
+
+/* 3. Ссылки в футере */
+.site-footer a {
+  color: #93c5fd !important; /* Мягкий голубой цвет для ссылок */
+  text-decoration: none !important;
+}
+
+.site-footer a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
+}
+
+/* 4. Нижняя строка с копирайтом */
+.site-footer .footer-bottom,
+.footer-bottom p {
+  color: #cbd5e1 !important; /* Контрастный светло-серый текст */
+  border-top-color: #334155 !important;
+}
+/* ==========================================================================
+   Идеальный единый стиль для всего текста в футере (исправление невидимости)
+   ========================================================================== */
+.site-footer,
+.site-footer *,
+.site-footer h4,
+.site-footer p,
+.site-footer a,
+.site-footer span,
+.site-footer li,
+.footer-container h4,
+.footer-container p,
+.footer-container a,
+.footer-bottom,
+.footer-bottom p {
+  color: #f1f5f9 !important; /* Яркий и чистый светлый оттенок для абсолютно всех элементов */
+  text-decoration: none !important;
+}
+
+/* Эффект при наведении на ссылки в футере */
+.site-footer a:hover {
+  color: #38bdf8 !important; /* Приятный голубой цвет при наведении */
+  text-decoration: underline !important;
+}
+/* ==========================================================================
+   Исправление читаемости текста в бейджах категорий в тёмной теме
+   ========================================================================== */
+body.dark-theme .data-table span, 
+body.dark-theme td span {
+  background-color: #334155 !important; /* Тёмный аккуратный фон для бейджа */
+  color: #38bdf8 !important;            /* Яркий контрастный голубой цвет текста */
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}

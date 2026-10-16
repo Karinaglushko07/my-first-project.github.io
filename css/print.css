@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Стили для печати документов и памяток (Print Media Styles)
+   ========================================================================== */
+@media print {
+  /* Скрываем элементы интерфейса, меню, шапку, подвал и кнопки */
+  .site-header,
+  .main-nav,
+  .nav-toggle-btn,
+  .ticker-wrap,
+  .site-footer,
+  .hero-actions,
+  button,
+  .search-box,
+  .breadcrumbs {
+    display: none !important;
+  }
+
+  /* Сбрасываем фон и цвета для экономии чернил и читаемости */
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  /* Контейнеры на всю ширину страницы */
+  .content-container,
+  .page,
+  .knowledge-form-card,
+  .checklist-form-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Заголовки */
+  h1, h2, h3, h4 {
+    color: #000000 !important;
+    page-break-after: avoid;
+  }
+
+  /* Карточки и блоки контента */
+  .card, .notice, .callout-box, .checklist-item {
+    border: 1px solid #ccc !important;
+    break-inside: avoid;
+    margin-bottom: 15px;
+    background: #ffffff !important;
+  }
+
+  /* Ссылки (вывод URL рядом со ссылкой при печати, если требуется) */
+  a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #555;
+  }
+}

@@ -1,0 +1,1332 @@
+/* ==========================================
+   Задание 4: Настройка темы и переопределение переменных
+   ========================================== */
+:root {
+  /* 1. Фирменные цвета проекта */
+  --bs-primary: #1a365d;        /* Глубокий тёмно-синий цвет бренда */
+  --bs-secondary: #718096;      /* Нейтральный серый для второстепенных элементов */
+  --bs-success: #2f855a;        /* Приглушённый зелёный статус */
+  --bs-dark: #0f172a;           /* Тёмно-графитовый для шапки, подвала и таблиц */
+  --bs-light: #f8fafc;          /* Светлый фоновый оттенок */
+
+  /* 2. Типографика */
+  --bs-body-font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --bs-body-color: #1e293b;     /* Основной цвет текста высокой контрастности */
+
+  /* 3. Радиусы скругления (Геометрия) */
+  --bs-border-radius: 8px;      /* Стандартное скругление кнопок и полей */
+  --bs-border-radius-sm: 4px;   /* Компактное скругление для бейджей */
+  --bs-border-radius-lg: 12px;  /* Увеличенное скругление для карточек */
+
+  /* 4. Тени (Depth & Elevation) */
+  --bs-box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
+  --bs-box-shadow-sm: 0 3px 10px rgba(37, 99, 235, 0.3);
+  --bs-box-shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Применение переменных к базовым элементам проекта */
+body {
+  font-family: var(--bs-body-font-family);
+  color: var(--bs-body-color);
+  background-color: var(--bs-light);
+}
+
+/* Скругления и тени для карточек */
+.card {
+  border-radius: var(--bs-border-radius-lg);
+  box-shadow: var(--bs-box-shadow);
+}
+
+/* Скругления для кнопок */
+.nav-btn, .card-btn, .btn {
+  border-radius: var(--bs-border-radius);
+}
+/* ==========================================
+   Задание 3: Базовое оформление и палитра
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f1f5f9;
+}
+
+.content-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* ==========================================
+   Задание 4: Шапка с выразительным линейным градиентом
+   ========================================== */
+.site-header {
+  /* Насыщенный линейный градиент глубоких темно-синих и изумрудных тонов */
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #065f46 100%);
+  color: #ffffff;
+  padding: 24px 0;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.35);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Навигация и Задание 9: Кнопки */
+.main-nav {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-btn, .card-btn {
+  display: inline-block;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.nav-btn:hover, .card-btn:hover {
+  background: linear-gradient(135deg, #64748b, #475569);
+  box-shadow: 0 6px 16px rgba(71, 85, 105, 0.4);
+}
+
+.nav-btn:active, .card-btn:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================
+   Задание 4: Сетка и карточки с градиентами
+   ========================================== */
+.section-title {
+  font-size: 1.65rem;
+  margin-bottom: 28px;
+  color: #0f172a;
+  border-bottom: 3px solid #cbd5e1;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+  margin-bottom: 50px;
+}
+
+/* Стандартные карточки: Мягкий диагональный линейный градиент с аккуратной синей плашкой сверху */
+.card {
+  background: linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-top: 4px solid #2563eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Задание 4: Яркий и заметный радиальный градиент для карточки "Избирательный кодекс" */
+.card-radial {
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
+  border: 1px solid #7dd3fc;
+  border-top: 4px solid #0284c7;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.12);
+}
+
+.card-header {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1d4ed8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.card-radial .card-header {
+  color: #0369a1;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 20px;
+  line-height: 1.55;
+}
+
+/* ==========================================
+   Задание 5: Увеличенная секция с атрибутами и знаками
+   ========================================== */
+.signs-section {
+  background: #ffffff;
+  padding: 36px;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.section-desc {
+  color: #64748b;
+  margin-bottom: 28px;
+  font-size: 1rem;
+}
+
+/* Сетка для крупных карточек знаков */
+.signs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  justify-items: center;
+}
+
+.sign-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1e293b;
+  width: 100%;
+}
+
+/* Увеличенный размер изображений знаков (160x160px вместо 80x80px) */
+.safety-sign {
+  width: 160px;
+  height: 160px;
+  object-fit: contain;
+  background: linear-gradient(145deg, #f8fafc, #edf2f7);
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* ==========================================
+   Задание 2: Подвал сайта
+   ========================================== */
+.site-footer {
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-top: 50px;
+}
+
+/* ==========================================
+   Задание 9: Базовое оформление и единая палитра
+   ========================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f1f5f9;
+}
+
+/* Общий класс для заголовков секций (переиспользуемый) */
+.section-title {
+  font-size: 1.65rem;
+  margin-bottom: 28px;
+  color: #0f172a;
+  border-bottom: 3px solid #cbd5e1;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Общий переиспользуемый класс для кнопок */
+.nav-btn, .card-btn {
+  display: inline-block;
+  padding: 9px 20px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.nav-btn:hover, .card-btn:hover {
+  background: linear-gradient(135deg, #64748b, #475569);
+  box-shadow: 0 6px 16px rgba(71, 85, 105, 0.4);
+}
+
+.nav-btn:active, .card-btn:active {
+  transform: scale(0.96);
+}
+
+/* Общий переиспользуемый класс для карточек */
+.card {
+  background: linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-top: 4px solid #2563eb;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(30, 58, 138, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Вариация карточки с радиальным градиентом */
+.card-radial {
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
+  border: 1px solid #7dd3fc;
+  border-top: 4px solid #0284c7;
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.12);
+}
+
+/* ==========================================
+   Базовое оформление, переменные и типографика
+   ========================================== */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f1f5f9;
+}
+
+/* Ограничение выхода мультимедиа за пределы контейнеров */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Заголовки с адаптивным размером текста */
+h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+}
+
+/* Общий переиспользуемый класс для заголовков */
+.section-title {
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  margin-bottom: 24px;
+  color: #0f172a;
+  border-bottom: 3px solid #cbd5e1;
+  padding-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Переиспользуемые кнопки */
+.nav-btn, .card-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #2563eb;
+  background: -webkit-linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+  -webkit-transition: background 0.3s ease, -webkit-shadow 0.3s ease, -webkit-transform 0.15s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.15s ease;
+}
+
+.nav-btn:hover, .card-btn:hover {
+  background: #475569;
+  background: -webkit-linear-gradient(135deg, #64748b, #475569);
+  background: linear-gradient(135deg, #64748b, #475569);
+  -webkit-box-shadow: 0 6px 16px rgba(71, 85, 105, 0.4);
+  box-shadow: 0 6px 16px rgba(71, 85, 105, 0.4);
+}
+
+.nav-btn:active, .card-btn:active {
+  -webkit-transform: scale(0.96);
+  transform: scale(0.96);
+}
+
+/* ==========================================
+   Задание 5: Стили и Цветовая индикация итогов
+   ========================================== */
+.checklist-summary {
+  background: #ffffff;
+  border: 2px solid #cbd5e1;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  transition: all 0.3s ease;
+}
+
+.summary-score {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.summary-score strong {
+  font-size: 1.8rem;
+  margin-left: 8px;
+}
+
+/* 1. Зелёный индикатор — Высокий уровень (>= 80%) */
+.checklist-summary.summary-high {
+  border-color: #16a34a !important;
+  background-color: #f0fdf4 !important;
+  color: #14532d !important;
+}
+.checklist-summary.summary-high strong {
+  color: #15803d !important;
+}
+
+/* 2. Жёлтый индикатор — Удовлетворительный уровень (50% - 79%) */
+.checklist-summary.summary-medium {
+  border-color: #ca8a04 !important;
+  background-color: #fefce8 !important;
+  color: #713f12 !important;
+}
+.checklist-summary.summary-medium strong {
+  color: #a16207 !important;
+}
+
+/* 3. Красный индикатор — Есть несоответствия (< 50%) */
+.checklist-summary.summary-low {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+  color: #7f1d1d !important;
+}
+.checklist-summary.summary-low strong {
+  color: #b91c1c !important;
+}
+
+/* Поддержка индикации в Тёмной теме */
+body.dark-theme .checklist-summary.summary-high {
+  background-color: #064e3b !important;
+  color: #6ee7b7 !important;
+  border-color: #059669 !important;
+}
+body.dark-theme .checklist-summary.summary-medium {
+  background-color: #713f12 !important;
+  color: #fde047 !important;
+  border-color: #ca8a04 !important;
+}
+body.dark-theme .checklist-summary.summary-low {
+  background-color: #7f1d1d !important;
+  color: #fca5a5 !important;
+  border-color: #dc2626 !important;
+}
+
+/* ==========================================
+   Фикс модального окна (Задание 7)
+   ========================================== */
+
+/* 1. Изначально скрываем окно и фиксируем на весь экран */
+.modal-overlay {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(15, 23, 42, 0.75) !important; /* Полупрозрачный тёмный фон */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9999 !important; /* Выводим поверх всех блоков и подвала */
+  
+  /* Состояние скрытости */
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}
+
+/* 2. Состояние при клике на кнопку (когда JS добавляет класс .active) */
+.modal-overlay.active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+}
+
+/* 3. Само белое окошко по центру */
+.modal-window {
+  background: #ffffff !important;
+  color: #1e293b !important;
+  padding: 30px !important;
+  border-radius: 16px !important;
+  max-width: 500px !important;
+  width: 90% !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease !important;
+}
+
+.modal-overlay.active .modal-window {
+  transform: translateY(0) !important;
+}
+
+/* Поддержка модального окна в тёмной теме */
+body.dark-theme .modal-window {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+}
+
+/* Закрепление кнопки темы на прежнем месте в шапке */
+.header-container .theme-toggle-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  margin-left: auto !important; /* Аккуратно прижимает к правой части шапки */
+  cursor: pointer !important;
+  z-index: 10 !important;
+}
+
+/* ==========================================
+   Рабочая Тёмная тема
+   ========================================== */
+body.dark-theme {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Заголовки в тёмной теме */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme .section-title {
+  color: #ffffff !important;
+}
+
+/* Карточки и блоки */
+body.dark-theme .card,
+body.dark-theme .provisions-section,
+body.dark-theme .news-card,
+body.dark-theme .sidenav,
+body.dark-theme .checklist-item,
+body.dark-theme .modal-window {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .card p,
+body.dark-theme .news-card p {
+  color: #cbd5e1 !important;
+}
+
+/* Поле поиска */
+body.dark-theme .search-input {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+/* Кнопка темы в шапке */
+.header-container .theme-toggle-btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ==========================================
+   Фикс читаемости Чек-листа в Тёмной теме
+   ========================================== */
+
+/* 1. Описание под заголовком */
+body.dark-theme .section-desc {
+  color: #cbd5e1 !important;
+}
+
+/* 2. Итоговая плашка чек-листа */
+body.dark-theme .checklist-summary {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  color: #f8fafc !important;
+}
+
+body.dark-theme .summary-score,
+body.dark-theme .summary-status,
+body.dark-theme #score-percent {
+  color: #ffffff !important;
+}
+
+/* 3. Опции radio и подписи в чек-листе */
+body.dark-theme .item-options label {
+  color: #f8fafc !important;
+}
+
+/* 4. Инпуты комментариев */
+body.dark-theme .item-comment {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #475569 !important;
+}
+
+body.dark-theme .item-comment::placeholder {
+  color: #94a3b8 !important;
+}
+
+/* Кнопка "Очистить результаты" в тёмной теме */
+body.dark-theme #clear-checklist-btn {
+  background: linear-gradient(135deg, #475569, #334155) !important;
+  color: #ffffff !important;
+}
+
+/* ==========================================
+   Идеальная Тёмная тема: Таблицы, Врезки, Меню
+   ========================================== */
+
+/* 1. Таблицы в тёмной теме (Фикс невидимого текста) */
+body.dark-theme .table-responsive {
+  border-color: #334155 !important;
+}
+
+body.dark-theme .data-table {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+body.dark-theme .data-table caption {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .data-table thead th {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .data-table tbody tr {
+  background-color: #1e293b !important;
+}
+
+body.dark-theme .data-table tbody tr:nth-child(even) {
+  background-color: #0f172a !important; /* Зебра-эффект */
+}
+
+body.dark-theme .data-table td,
+body.dark-theme .data-table th[scope="row"] {
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+/* 2. Боковое меню (Фикс тусклых ссылок) */
+body.dark-theme .sidenav {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__title {
+  color: #ffffff !important;
+  border-bottom-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__link {
+  color: #cbd5e1 !important;
+}
+
+body.dark-theme .sidenav__link:hover {
+  color: #ffffff !important;
+  background-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__link[aria-current="page"] {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* 3. Врезки (Notice / Callout) в тёмной теме */
+body.dark-theme .notice--info {
+  background-color: #1e3a8a !important;
+  border-left-color: #3b82f6 !important;
+  color: #eff6ff !important;
+}
+
+body.dark-theme .notice--warning {
+  background-color: #78350f !important;
+  border-left-color: #f59e0b !important;
+  color: #fef3c7 !important;
+}
+
+body.dark-theme .notice--step {
+  background-color: #064e3b !important;
+  border-left-color: #10b981 !important;
+  color: #ecfdf5 !important;
+}
+
+body.dark-theme .notice__title {
+  color: #ffffff !important;
+}
+
+/* 4. Бегущая строка (Фикс наезжания) */
+.ticker-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+/* ==========================================
+   Фикс Подвала (Сетка в 3 колонки и стиль)
+   ========================================== */
+
+/* Базовый контрастный стиль подвала для Светлой темы */
+.site-footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%) !important;
+  color: #94a3b8 !important;
+  border-top: 4px solid #2563eb !important; /* Яркая синяя разделительная полоса сверху */
+  padding: 36px 0 16px 0 !important;
+  margin-top: 50px !important;
+}
+
+.footer-container {
+  width: min(100% - 24px, 1180px) !important;
+  margin: 0 auto !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important; /* На телефонах в 1 колонку */
+  gap: 24px !important;
+}
+
+.footer-container h4 {
+  color: #ffffff !important;
+  font-size: 1.1rem !important;
+  margin-bottom: 12px !important;
+}
+
+.footer-container p,
+.footer-container a {
+  color: #cbd5e1 !important;
+  font-size: 0.95rem !important;
+  line-height: 1.5 !important;
+}
+
+.footer-bottom {
+  width: min(100% - 24px, 1180px) !important;
+  margin: 24px auto 0 auto !important;
+  border-top: 1px solid #334155 !important;
+  padding-top: 16px !important;
+  text-align: center !important;
+  color: #94a3b8 !important;
+}
+
+/* Переход подвала в 3 колонки на планшетах, ноутбуках и ПК (от 768px) */
+@media (min-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr) !important; /* Ровно 3 колонки */
+  }
+}
+
+/* Стиль подвала при переключении на Тёмную тему */
+body.dark-theme .site-footer {
+  background: #020617 !important;
+  border-top-color: #3b82f6 !important;
+}
+/* ==========================================
+   Согласование стилей jQuery UI с темой проекта
+   ========================================== */
+
+/* Основной контейнер виджетов jQuery UI */
+.ui-widget {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important;
+  font-size: 0.95rem !important;
+}
+
+/* Шапка виджетов (например, диалоговых окон) под стиль шапки или карточек проекта */
+.ui-widget-header {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border: none !important;
+  border-radius: 8px 8px 0 0 !important;
+}
+
+/* Основной блок виджета */
+.ui-widget-content {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+}
+
+/* Поддержка стилей jQuery UI в Тёмной теме проекта */
+body.dark-theme .ui-widget-content {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .ui-widget-header {
+  background: linear-gradient(135deg, #0f172a, #1e3a8a) !important;
+  color: #ffffff !important;
+}
+/* ==========================================
+   Полноценная стилизация Тёмной темы (dark-theme)
+   ========================================== */
+body.dark-theme {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+/* Заголовки и тексты */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme .section-title {
+    color: #ffffff !important;
+}
+
+body.dark-theme p,
+body.dark-theme li,
+body.dark-theme span {
+    color: #cbd5e1 !important;
+}
+
+/* Боковая навигация */
+body.dark-theme .sidenav {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__title {
+    color: #ffffff !important;
+    border-bottom-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__link {
+    color: #cbd5e1 !important;
+}
+
+body.dark-theme .sidenav__link:hover {
+    color: #ffffff !important;
+    background-color: #334155 !important;
+}
+
+body.dark-theme .sidenav__link[aria-current="page"] {
+    background-color: #2563eb !important;
+    color: #ffffff !important;
+}
+
+/* Карточки и инфо-блоки */
+body.dark-theme .card,
+body.dark-theme .info-card,
+body.dark-theme .stat-box {
+    background: #1e293b !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+}
+
+body.dark-theme .card h3,
+body.dark-theme .card-header {
+    color: #38bdf8 !important;
+}
+
+body.dark-theme .card p {
+    color: #cbd5e1 !important;
+}
+
+/* Таблицы в тёмной теме */
+body.dark-theme .table-responsive {
+    border-color: #334155 !important;
+}
+
+body.dark-theme .data-table {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+}
+
+body.dark-theme .data-table caption {
+    color: #cbd5e1 !important;
+}
+
+body.dark-theme .data-table thead tr {
+    background-color: #0f172a !important;
+}
+
+body.dark-theme .data-table th,
+body.dark-theme .data-table td {
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+    background-color: transparent !important;
+}
+
+body.dark-theme .data-table tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+}
+
+/* Врезки и предупреждения */
+body.dark-theme .notice--warning {
+    background-color: #451a03 !important;
+    border-left-color: #f59e0b !important;
+    color: #fef3c7 !important;
+}
+
+body.dark-theme .notice--warning .notice__title,
+body.dark-theme .notice--warning p {
+    color: #fef3c7 !important;
+}
+
+body.dark-theme .info-block-highlight {
+    background-color: #0f172a !important;
+    border-left-color: #3b82f6 !important;
+}
+
+body.dark-theme .info-block-highlight h4 {
+    color: #ffffff !important;
+}
+/* ==========================================
+   Задание 2: Оформление типографики и читаемость
+   ========================================== */
+
+/* 1. Базовые настройки для всего документа (body) */
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem; /* 16px */
+  line-height: 1.6; /* Комфортный межстрочный интервал */
+  color: #1e293b; /* Высокий контраст (темно-серый цвет на светлом фоне) */
+  background-color: #f1f5f9;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 2. Заголовки (адаптивные размеры, плотность и межстрочные интервалы) */
+h1, .brand-text h1 {
+  font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: #0f172a;
+}
+
+h2, .section-title {
+  font-size: clamp(1.2rem, 2vw, 1.65rem);
+  font-weight: 700;
+  line-height: 1.3;
+  color: #0f172a;
+  border-bottom: 3px solid #cbd5e1;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+h3, .card h3 {
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.35;
+  color: #0f172a;
+  margin-bottom: 12px;
+}
+
+/* 3. Абзацы и тексты */
+p, .card p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: #334155; /* Контрастный цвет текста для чтения */
+  margin-bottom: 16px;
+}
+
+/* 4. Вспомогательные элементы типографики */
+.section-desc {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #64748b; /* Приглушенный цвет для описаний */
+  margin-bottom: 28px;
+}
+
+.card-header {
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px; /* Увеличенный разгон букв для разборчивости капслока */
+  color: #1d4ed8;
+  margin-bottom: 8px;
+}
+
+/* ==========================================
+   Задание 3: Утилиты отступов и вертикальный ритм
+   ========================================== */
+
+/* 1. Базовые отступы контейнеров (кратные 8px) */
+.content-container, .page {
+  padding-top: 24px;   /* py-3 / py-6 */
+  padding-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 2. Отступы для секций и блоков-героев */
+.hero-section {
+  padding: 32px;       /* p-8 (кратный 8) */
+  margin-bottom: 32px; /* mb-8 */
+}
+
+.provisions-section, .signs-section {
+  padding: 24px;       /* p-6 */
+  margin-bottom: 32px; /* mb-8 */
+}
+
+/* 3. Внутренние отступы карточек */
+.card {
+  padding: 24px;       /* p-6 */
+}
+
+/* 4. Вертикальный ритм заголовков и абзацев */
+h1 {
+  margin-bottom: 16px; /* mb-3 */
+}
+
+h2, .section-title {
+  margin-bottom: 24px; /* mb-4 */
+}
+
+h3 {
+  margin-bottom: 12px; /* mb-2 */
+}
+
+p, .card p {
+  margin-bottom: 16px; /* mb-3 */
+}
+/* ==========================================
+   Задание 4: Цвета и фон (Утилиты)
+   ========================================== */
+.bg-primary-custom { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #065f46 100%) !important; }
+.bg-light-custom { background-color: #f1f5f9 !important; }
+.bg-card-custom { background: linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%) !important; }
+.text-primary-custom { color: #1d4ed8 !important; }
+.text-dark-custom { color: #1e293b !important; }
+.text-muted-custom { color: #64748b !important; }
+
+/* ==========================================
+   Задание 5: Рамки и скругления (Утилиты)
+   ========================================== */
+.rounded-sm-custom { border-radius: 4px !important; }
+.rounded-custom { border-radius: 8px !important; }
+.rounded-lg-custom { border-radius: 12px !important; }
+.rounded-xl-custom { border-radius: 16px !important; }
+
+.border-custom { border: 1px solid #cbd5e1 !important; }
+.border-primary-custom { border: 1px solid #bfdbfe !important; border-top: 4px solid #2563eb !important; }
+.border-warning-custom { border-left: 5px solid #d97706 !important; }
+.border-info-custom { border-left: 5px solid #2563eb !important; }
+.border-success-custom { border-left: 5px solid #16a34a !important; }
+
+/* ==========================================
+   Задание 6: Состояния (Hover, Focus, Active) и доступность
+   ========================================== */
+a:hover, .nav-btn:hover, .card-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  transition: all 0.2s ease;
+}
+
+a:active, .nav-btn:active, .card-btn:active {
+  transform: scale(0.97);
+}
+
+/* Видимость фокуса при клавиатурной навигации (Accessibility) */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid #2563eb !important;
+  outline-offset: 2px !important;
+}
+
+/* Строки таблиц при наведении */
+.data-table tbody tr:hover {
+  background-color: rgba(37, 99, 235, 0.08) !important;
+}
+
+/* ==========================================
+   Задание 7: Оформление таблиц и форм
+   ========================================== */
+.table-responsive {
+  width: 100% !important;
+  overflow-x: auto !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  margin: 20px 0 !important;
+}
+
+.data-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background-color: #ffffff !important;
+}
+
+.data-table th, .data-table td {
+  padding: 12px 16px !important;
+  border: 1px solid #e2e8f0 !important;
+  text-align: left !important;
+}
+
+.data-table thead th {
+  background-color: #1e293b !important;
+  color: #ffffff !important;
+}
+
+.data-table tbody tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+/* Поля форм */
+input[type="text"], input[type="email"], input[type="number"], select, textarea {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  font-size: 1rem !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+  box-sizing: border-box !important;
+  margin-bottom: 12px !important;
+}
+
+input.error, select.error, textarea.error {
+  border-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+}
+
+input.valid, select.valid, textarea.valid {
+  border-color: #16a34a !important;
+}
+:root {
+  /* Фирменная палитра проекта */
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --border-color: #cbd5e1;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme {
+  --primary-color: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Применение глобальных переменных темы с высоким контрастом текста */
+body {
+  background-color: var(--bg-main) !important;
+  color: var(--text-main) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Фирменный стиль карточек и контейнеров */
+.knowledge-form-card, 
+.checklist-form-card, 
+.stats-panel, 
+.registry-controls {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 4px 15px var(--shadow-color) !important;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 25px;
+}
+
+/* Компоненты форм и подписи с контрастным текстом */
+.form-group label, 
+.item-title, 
+.quiz-question p {
+  color: var(--text-main) !important;
+  font-weight: 650;
+}
+
+.form-control, 
+.item-comment {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.form-control::placeholder {
+  color: var(--text-muted) !important;
+}
+
+/* Фирменные кнопки интерфейса */
+.card-btn.primary-btn {
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.card-btn.primary-btn:hover {
+  background-color: var(--primary-hover) !important;
+}
+/* Исправление контрастности блока примечания в светлой и тёмной темах */
+.content-container div[style*="background"], 
+.note-box, 
+.alert-box {
+  background-color: var(--bg-card, #ffffff) !important;
+  color: var(--text-main, #1e293b) !important;
+  border: 1px solid var(--border-color, #cbd5e1) !important;
+}
+
+/* Если текст внутри примечания имеет собственный бледный класс или стиль */
+body.dark-theme div[style*="background"] span,
+body.dark-theme div[style*="background"] p {
+  color: #cbd5e1 !important;
+}
+/* Исправление темы и контраста для блоков с примечаниями (.callout-box) */
+.callout-box {
+  background-color: #f8fafc;
+  border-left: 4px solid var(--primary-color, #2563eb);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  border: 1px solid #cbd5e1;
+  color: #1e293b;
+}
+
+body.dark-theme .callout-box {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+  border-left-color: #38bdf8 !important;
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .callout-box strong,
+body.dark-theme .callout-box p {
+  color: #f1f5f9 !important;
+}
+
+body.dark-theme .callout-box a {
+  color: #38bdf8 !important;
+}
+.progress-bar-track {
+  background-color: #cbd5e1 !important; /* Серый дорожка-фон */
+  height: 12px !important;
+  border-radius: 6px !important;
+}
+.progress-bar-fill {
+  background-color: #2563eb !important; /* Яркая синяя полоса */
+  height: 100% !important;
+  border-radius: 6px !important;
+}
+/* ==========================================================================
+   Стили панели фильтрации в чек-листе (Светлая и Тёмная темы)
+   ========================================================================== */
+.filter-panel-box {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 16px 20px !important;
+  border-radius: 10px !important;
+  margin-bottom: 20px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.filter-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  cursor: pointer !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  color: #1e293b !important;
+}
+
+.filter-panel-box input[type="checkbox"] {
+  width: 18px !important;
+  height: 18px !important;
+  accent-color: #2563eb !important;
+  cursor: pointer !important;
+}
+
+/* Поддержка Тёмной темы */
+body.dark-theme .filter-panel-box {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+body.dark-theme .filter-label {
+  color: #f1f5f9 !important;
+}
+/* Поддержка заголовка легенды (legend) в тёмной теме для формы чек-листа */
+body.dark-theme .checklist-form-card legend,
+body.dark-theme fieldset legend {
+  color: #f1f5f9 !important;
+}

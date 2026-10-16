@@ -1,0 +1,489 @@
+/* ==========================================
+   Задание 6: Бегущая строка
+   ========================================== */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a202c;
+  color: #e2e8f0;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.ticker-move {
+  display: inline-block;
+  padding-left: 100%;
+  animation: ticker 25s linear infinite;
+}
+
+.ticker-wrap:hover .ticker-move {
+  animation-play-state: paused;
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+/* ==========================================
+   Задание 7: Пульсирующий индикатор
+   ========================================== */
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  min-height: 10px;
+  background-color: #48bb78;
+  border-radius: 50%;
+  display: inline-block;
+
+  /* Защита от искажения формы и растягивания в flex-контейнере */
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  aspect-ratio: 1 / 1;
+
+  /* Анимация пульсации */
+  -webkit-animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+  }
+
+  70% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(72, 187, 120, 0);
+  }
+
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7);
+  }
+
+  70% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+    box-shadow: 0 0 0 6px rgba(72, 187, 120, 0);
+  }
+
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(72, 187, 120, 0);
+  }
+}
+
+/* ==========================================
+   Задание 5: Трансформации, transform-origin и hover-эффект
+   ========================================== */
+.card {
+  /* Задаём точку отсчёта для трансформации (нижний центр) */
+  transform-origin: 50% 100%;
+
+  /* Плавный переход для ховера */
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Наведение на карточку: изменение масштаба, поворота и тени */
+.card:hover {
+  transform: scale(1.05) rotate(2deg) !important;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Задание 5: Смена фильтра картинок (grayscale(1) -> none) */
+.safety-sign {
+  filter: grayscale(1);
+  transition: filter 0.4s ease, transform 0.3s ease;
+}
+
+.safety-sign:hover {
+  filter: none;
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   Задание 8: Последовательное появление с задержкой
+   ========================================== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  /* Анимация проигрывается один раз за 0.8s */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.card-delay-1 {
+  animation-delay: 0.3s;
+}
+
+.card-delay-2 {
+  animation-delay: 0.6s;
+}
+
+.card-delay-3 {
+  animation-delay: 0.9s;
+}
+
+.card-delay-4 {
+  animation-delay: 0.12s;
+}
+
+/* ==========================================
+   Задание 10: Поддержка доступности (prefers-reduced-motion)
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  /* 1. Отключаем время анимаций и переходов */
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0s !important;
+    transition-duration: 0s !important;
+  }
+
+  .ticker-move {
+    animation: none !important;
+    padding-left: 20px;
+  }
+
+  .card:hover,
+  .safety-sign:hover,
+  .nav-btn:hover,
+  .card-btn:hover,
+  .nav-btn:active,
+  .card-btn:active {
+    transform: none !important;
+  }
+
+  .safety-sign,
+  .safety-sign:hover {
+    filter: none !important;
+  }
+
+  .card:hover {
+    transform: none !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06) !important;
+  }
+}
+
+/* ==========================================
+   Занятие 3 — Задание 6: Анимация и оформление врезок
+   ========================================== */
+
+/* 1. Плавный эффект при наведении на врезки и блоки-предупреждения */
+.notice,
+.callout-box {
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+  will-change: transform;
+}
+
+/* 2. Легкое приподнимание и усиление тени при наведении мыши */
+.notice:hover,
+.callout-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* 3. Анимация плавного появления блоков при прокрутке/загрузке страницы */
+@keyframes noticeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.notice,
+.callout-box {
+  animation: noticeSlideUp 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================
+   Анимации и эффекты
+   ========================================== */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: #1a202c;
+  color: #e2e8f0;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.ticker-move {
+  display: inline-block;
+  padding-left: 100%;
+  -webkit-animation: ticker 25s linear infinite;
+  animation: ticker 25s linear infinite;
+}
+
+.ticker-wrap:hover .ticker-move {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused;
+}
+
+@-webkit-keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes ticker {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+.status-indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #48bb78;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-animation: pulse 2s ease-in-out infinite;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  70% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+
+  70% {
+    -webkit-transform: scale(1.15);
+    transform: scale(1.15);
+  }
+
+  100% {
+    -webkit-transform: scale(0.95);
+    transform: scale(0.95);
+  }
+}
+
+.card {
+  -webkit-transition: -webkit-transform 0.3s ease, -webkit-box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+  -webkit-box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Отключение анимаций при предпочтении уменьшенного движения */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    -webkit-animation-delay: -1ms !important;
+    animation-delay: -1ms !important;
+    -webkit-animation-duration: 1ms !important;
+    animation-duration: 1ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    -webkit-transition-delay: 0s !important;
+    transition-delay: 0s !important;
+    -webkit-transition-duration: 0s !important;
+    transition-duration: 0s !important;
+  }
+
+  .ticker-move {
+    -webkit-animation: none !important;
+    animation: none !important;
+    padding-left: 16px;
+  }
+
+  /* Базовый класс для скрытия строк перед анимацией появления */
+  .table-row-animated {
+    display: none;
+  }
+}
+
+/* ==========================================
+   Задание 3: Компонент карточек и сохранение анимаций
+   ========================================== */
+
+/* Базовая структура компонента карточки */
+.card {
+  background: linear-gradient(160deg, #ffffff 0%, #eff6ff 60%, #dbeafe 100%);
+  border: 1px solid #bfdbfe;
+  border-top: 4px solid #2563eb;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  /* Точка трансформации для эффекта наведения */
+  transform-origin: 50% 100%;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+
+  /* Анимация плавного проявления из Работы 1 */
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Карточка с радиальным градиентом */
+.card-radial {
+  background: radial-gradient(circle at 0% 0%, #ffffff 0%, #e0f2fe 50%, #bae6fd 100%);
+  border: 1px solid #7dd3fc;
+  border-top: 4px solid #0284c7;
+}
+
+/* Исправление отображения изображений в карточках (чтобы не обрезались) */
+.card-img {
+  width: 100%;
+  height: 180px;      
+  object-fit: contain;  
+  background-color: #f8fafc; 
+  padding: 10px;          
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Контейнер содержимого карточки */
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+.card-text {
+  font-size: 0.95rem;
+  color: #334155;
+  margin-bottom: 20px;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+/* --- Сохранение эффектов наведения из Работы 1 --- */
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(30, 58, 138, 0.18);
+}
+
+/* --- Сохранение каскадных задержек анимации из Работы 1 --- */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.card-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.card-delay-3 {
+  animation-delay: 0.6s;
+}
+
+.card-delay-4 {
+  animation-delay: 0.8s;
+}
+
+/* Отключение анимаций при режиме prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .card:hover {
+    transform: none !important;
+  }
+}

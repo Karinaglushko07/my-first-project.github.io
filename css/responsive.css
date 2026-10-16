@@ -1,0 +1,462 @@
+/* ==========================================================================
+   Идеальная адаптивность и порядок блоков (Mobile-First)
+   ========================================================================== */
+
+/* Изображения и видео */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   1. Мобильная шапка и навигация (до 767px)
+   -------------------------------------------------------------------------- */
+.site-header {
+  width: 100%;
+  padding: 10px 0;
+  overflow: hidden;
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: min(100% - 20px, 1180px);
+  margin: 0 auto;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.brand-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1;
+}
+
+.brand-text h1 {
+  font-size: clamp(0.85rem, 3.5vw, 1.2rem) !important;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word;
+}
+
+.site-logo {
+  height: 34px;
+  width: 34px;
+  min-width: 34px;
+  flex-shrink: 0;
+}
+
+/* Кнопка темы и гамбургер */
+.header-container .theme-toggle-btn {
+  padding: 5px 10px !important;
+  font-size: 0.75rem !important;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.nav-toggle-input {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  opacity: 0;
+}
+
+.nav-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+.hamburger, .hamburger::before, .hamburger::after {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before, .hamburger::after { content: ''; position: absolute; }
+.hamburger::before { top: -5px; }
+.hamburger::after { top: 5px; }
+
+.nav-toggle-input:checked + .nav-toggle-btn .hamburger { background-color: transparent; }
+.nav-toggle-input:checked + .nav-toggle-btn .hamburger::before { top: 0; transform: rotate(45deg); }
+.nav-toggle-input:checked + .nav-toggle-btn .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+.main-nav {
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.nav-toggle-input:checked ~ .main-nav {
+  display: flex;
+}
+
+.main-nav .nav-btn {
+  width: 100%;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Главный контейнер (.page) и порядок блоков (Задание 5)
+   -------------------------------------------------------------------------- */
+.page {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+  width: min(100% - 24px, 1180px) !important;
+  margin: 0 auto !important;
+  padding: 16px 0 !important;
+  box-sizing: border-box !important;
+}
+
+.page__main, .page__aside {
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+/* На мобильных экранах: Навигация по разделам идет ПЕРВОЙ (order: 1), а контент ВТОРОЙ (order: 2) */
+.page__aside {
+  order: 1 !important;
+}
+
+.page__main {
+  order: 2 !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. Планшетная и Десктопная версия (от 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .page {
+    display: grid !important;
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    gap: 24px !important;
+    padding: 24px 0 !important;
+  }
+
+  /* На ПК и планшетах: Сайдбар (навигация) возвращается налево (order: 1), контент справа (order: 2) */
+  .page__aside {
+    order: 1 !important;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .page__main {
+    order: 2 !important;
+  }
+
+  .cards-grid, .news-grid, .tech-grid, .reform-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Планшетная и Десктопная версия (от 768px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .page {
+    display: grid !important;
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    gap: 24px !important;
+    padding: 24px 0 !important;
+  }
+
+  /* Задание 5: На ПК и планшетах меняем порядок: сайдбар слева (order: 1), контент справа (order: 2) */
+  .page__aside {
+    order: 1;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .page__main {
+    order: 2;
+  }
+
+  .cards-grid, .news-grid, .tech-grid, .reform-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. Широкий десктоп (от 1024px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .nav-toggle-btn { display: none !important; }
+
+  .main-nav {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+    gap: 8px;
+  }
+
+  .main-nav .nav-btn { width: auto; }
+
+  .cards-grid { grid-template-columns: repeat(4, 1fr); }
+  .tech-grid, .reform-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ==========================================================================
+   Исправление для карточек и сетки на узких экранах
+   ========================================================================== */
+
+/* 1. По умолчанию карточки на мобильных всегда выстраиваются в 1 колонку */
+.cards-grid, .tech-grid, .reform-grid {
+  display: grid;
+  grid-template-columns: 1fr !important;
+  gap: 16px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* 2. Защита текста и заголовков карточек от разрыва по буквам */
+.card, .step-card, .tech-card, .reform-card {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.card-header {
+  white-space: nowrap !important; /* Запрещает разрыв слов типа «ТРЕБОВАНИЕ» по буквам */
+  font-size: 0.8rem !important;
+  letter-spacing: 0.5px;
+}
+
+/* 3. Планшеты (от 768px): сетка карточек становится в 2 колонки */
+@media (min-width: 768px) {
+  .page {
+    display: grid !important;
+    grid-template-columns: 240px minmax(0, 1fr) !important;
+    gap: 24px !important;
+    padding: 24px 0 !important;
+  }
+
+  .page__aside {
+    order: 1 !important;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+  }
+
+  .page__main {
+    order: 2 !important;
+  }
+
+  .cards-grid, .tech-grid, .reform-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* 4. Широкие экраны / ПК (от 1024px): возвращаем 3 или 4 колонки в зависимости от карточек */
+@media (min-width: 1024px) {
+  .nav-toggle-btn { display: none !important; }
+
+  .main-nav {
+    display: flex !important;
+    flex-direction: row;
+    width: auto;
+    padding-top: 0;
+    margin-top: 0;
+    border-top: none;
+    gap: 8px;
+  }
+
+  .main-nav .nav-btn { width: auto; }
+
+  /* Для обычных карточек требований (в Разделе 1 их 3 штуки) */
+  #requirements-cards .cards-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  /* Для остальных сеток */
+  .tech-grid, .reform-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+/* ==========================================================================
+   Задание 6: Адаптивные таблицы, формы и группы кнопок на узких экранах
+   ========================================================================== */
+
+/* 1. Адаптивность таблиц */
+.table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  margin: 16px 0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #cbd5e1 !important;
+  box-sizing: border-box !important;
+}
+
+.data-table {
+  width: 100% !important;
+  min-width: 550px !important; /* Гарантирует свайп без сжатия ячеек в гармошку */
+  border-collapse: collapse !important;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 12px !important;
+  font-size: 0.9rem !important;
+  word-break: normal !important;
+}
+
+/* 2. Адаптивность форм, полей ввода и элементов управления */
+form {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  font-size: 1rem !important; /* Предотвращает автозум в Safari на iOS */
+  padding: 10px 14px !important;
+  margin-bottom: 12px !important;
+}
+
+/* 3. Группы кнопок и управляющие панели на узких экранах */
+.hero-actions,
+.registry-controls,
+.form-buttons,
+.button-group {
+  display: flex !important;
+  flex-direction: column !important; /* На мобильных кнопка под кнопкой во всю ширину */
+  gap: 10px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Кнопки внутри групп занимают 100% ширины на мобильных */
+.hero-actions .nav-btn,
+.hero-actions .card-btn,
+.hero-actions .btn,
+.form-buttons button,
+.button-group button {
+  width: 100% !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+
+/* 4. Планшеты и ПК (от 768px): возвращаем кнопки в ряд */
+@media (min-width: 768px) {
+  .hero-actions,
+  .registry-controls,
+  .form-buttons,
+  .button-group {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  .hero-actions .nav-btn,
+  .hero-actions .card-btn,
+  .hero-actions .btn,
+  .form-buttons button,
+  .button-group button {
+    width: auto !important;
+  }
+}
+/* ==========================================================================
+   Идеальная адаптивность модальных окон jQuery UI на мобильных устройствах
+   ========================================================================== */
+
+.ui-dialog {
+  max-width: 92vw !important;  /* Ограничивает ширину окна на мобильных */
+  width: 100% !important;       /* Занимает всю доступную ширину */
+  box-sizing: border-box !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important; /* Центрирование по горизонтали */
+  border-radius: 12px !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Ограничение внутреннего содержимого и поддержка прокрутки при длинном тексте */
+.ui-dialog .ui-dialog-content {
+  max-height: 75vh !important;  /* Чтобы окно не уходило за верх и низ экрана */
+  overflow-y: auto !important;  /* Вертикальная прокрутка, если текст не помещается */
+  box-sizing: border-box !important;
+  padding: 20px !important;
+}
+
+/* Адаптация панели кнопок внутри диалогового окна */
+.ui-dialog .ui-dialog-buttonpane {
+  padding: 10px 20px 15px 20px !important;
+  background: transparent !important;
+  border-top: 1px solid #e2e8f0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+}
+
+/* Кнопки внутри модального окна на мобильных растягиваются для удобства */
+.ui-dialog .ui-dialog-buttonpane button {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 10px 16px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+}
+
+/* На планшетах и ПК (от 768px) возвращаем кнопкам стандартную ширину */
+@media (min-width: 768px) {
+  .ui-dialog {
+    max-width: 520px !important; /* Фиксированная комфортная ширина на ПК */
+  }
+
+  .ui-dialog .ui-dialog-buttonpane button {
+    width: auto !important;
+  }
+}
+
+/* Поддержка адаптивности в Тёмной теме для линии разделителя кнопок */
+body.dark-theme .ui-dialog .ui-dialog-buttonpane {
+  border-top-color: #334155 !important;
+}
