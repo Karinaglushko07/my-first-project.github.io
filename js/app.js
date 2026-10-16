@@ -538,6 +538,7 @@ function initDatePicker() {
   var $dateInput = $('#check-date');
   if (!$dateInput.length) return;
 
+  // Настройка русской локализации
   $.datepicker.regional['ru'] = {
     closeText: 'Закрыть',
     prevText: '&#x3C;Пред',
@@ -554,11 +555,19 @@ function initDatePicker() {
 
   $.datepicker.setDefaults($.datepicker.regional['ru']);
 
+  // Инициализация с защитой для мобильных устройств
   $dateInput.datepicker({
     showAnim: 'fadeIn',
     maxDate: '+1m',
     changeMonth: true,
-    changeYear: true
+    changeYear: true,
+    // Запрещаем вызов мобильной клавиатуры при клике на календарь
+    beforeShow: function (input, inst) {
+      $(input).attr('readonly', 'readonly');
+    },
+    onClose: function (dateText, inst) {
+      $(this).removeAttr('readonly');
+    }
   });
 }
 
