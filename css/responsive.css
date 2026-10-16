@@ -455,6 +455,29 @@ textarea {
     width: auto !important;
   }
 }
+/* ==========================================================================
+   Адаптивность и фикс отображения jQuery UI Datepicker на мобильных
+   ========================================================================== */
+#ui-datepicker-div {
+  z-index: 99999 !important; /* Гарантирует вывод поверх модальных окон и шапки */
+  font-size: 1rem !important;
+  max-width: 90vw !important;
+}
+
+@media (max-width: 767px) {
+  #ui-datepicker-div {
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 290px !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+  }
+  
+  .ui-datepicker td span, 
+  .ui-datepicker td a {
+    padding: 8px 4px !important;
+    text-align: center !important;
+  }
+}
 
 /* Поддержка адаптивности в Тёмной теме для линии разделителя кнопок */
 body.dark-theme .ui-dialog .ui-dialog-buttonpane {
