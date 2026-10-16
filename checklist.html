@@ -45,22 +45,33 @@
     }
 
     .item-options {
-      display: flex;
-      flex-wrap: wrap; /* Разрешаем элементам переноситься на новую строку, если не хватает места */
-      gap: 12px 20px;  /* Отступы между вариантами */
-      margin-bottom: 12px;
-      width: 100%;
-      box-sizing: border-box;
+      display: grid !important;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+      gap: 8px 12px !important;
+      margin-bottom: 12px !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
     }
 
     .item-options label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      font-weight: 500;
-      color: #475569;
-      white-space: nowrap; /* Запрещаем разрыв текста внутри самой метки */
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      cursor: pointer !important;
+      font-weight: 500 !important;
+      color: #475569 !important;
+      font-size: 0.9rem !important;
+      background: #ffffff !important;
+      padding: 6px 10px !important;
+      border-radius: 6px !important;
+      border: 1px solid #e2e8f0 !important;
+      box-sizing: border-box !important;
+      white-space: normal !important; /* Разрешаем перенос текста внутри кнопки, если нужно */
+    }
+
+    .item-options input[type="radio"] {
+      margin: 0 !important;
+      flex-shrink: 0 !important;
     }
 
     .item-comment {
