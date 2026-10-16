@@ -799,7 +799,10 @@ function initSortableSteps() {
   $sortableList.sortable({
     placeholder: "ui-state-highlight",
     cursor: "grabbing",
-    opacity: 0.8
+    opacity: 0.8,
+    axis: "y",   
+    delay: 150,    
+    distance: 5     
   });
   $sortableList.disableSelection();
 }
