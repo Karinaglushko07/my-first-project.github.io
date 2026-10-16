@@ -1330,10 +1330,16 @@ body.dark-theme .checklist-form-card legend,
 body.dark-theme fieldset legend {
   color: #f1f5f9 !important;
 }
-/* Отключаем стандартную прокрутку страницы для сортируемых элементов, чтобы работал Drag-and-Drop на телефонах */
+
 #sortable-steps,
 #sortable-steps .sortable-item,
 .ui-sortable-handle {
   -webkit-touch-callout: none;
-  touch-action: none; /* Запрещает браузеру скроллить при касании этих элементов */
+  touch-action: none; 
+}
+
+.sortable-item {
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
